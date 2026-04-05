@@ -50,9 +50,12 @@ const getMenuItems = (role: string) => {
 
   return [
     ...base,
-    { icon: Target, label: "Platform Tasks", href: "/freelancer/tasks" },
-    { icon: Wallet, label: "My Wallet", href: "/freelancer/wallet" },
-    { icon: UserCircle, label: "Profile", href: "/freelancer/profile" },
+    { icon: Target, label: "Task List", href: "/freelancer/tasks" },
+    { icon: Wallet, label: "Wallet & Earnings", href: "/freelancer/wallet" },
+    { icon: Users, label: "Referral & Invite", href: "/freelancer/referrals" },
+    { icon: UserCircle, label: "Profile Management", href: "/freelancer/profile" },
+    { icon: Bell, label: "Notifications", href: "/freelancer/notifications" },
+    { icon: BarChart3, label: "Support & Help", href: "/freelancer/support" },
     { icon: Settings, label: "Settings", href: "/freelancer/settings" },
   ]
 }

@@ -11,8 +11,17 @@ import {
 } from "@/components/shared/ui/card"
 import { Badge } from "@/components/shared/ui/badge"
 
+import { cn } from "@/lib/utils"
+
+interface DataTableColumn {
+  key: string
+  label: string
+  render?: (value: any, item: any) => React.ReactNode
+}
+
 interface DataTableProps {
   data: any[]
+  columns?: DataTableColumn[]
   searchKey: string
   placeholder?: string
   actions?: (item: any) => React.ReactNode
@@ -20,15 +29,27 @@ interface DataTableProps {
 
 export function DataTable({
   data = [],
+  columns,
   searchKey,
   placeholder = "Search...",
   actions
 }: DataTableProps) {
   const [searchQuery, setSearchQuery] = React.useState("")
 
-  const filteredData = data.filter((item) =>
-    item[searchKey]?.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredData = data.filter((item) => {
+    const val = item[searchKey]
+    return typeof val === 'string' 
+      ? val.toLowerCase().includes(searchQuery.toLowerCase())
+      : String(val).toLowerCase().includes(searchQuery.toLowerCase())
+  })
+
+  // Determine columns to show if not provided
+  const displayColumns: DataTableColumn[] = columns || (Object.keys(data[0] || {})
+    .filter(k => k !== 'id' && k !== 'avatar')
+    .map(key => ({
+      key,
+      label: key.replace(/([A-Z])/g, ' $1').trim(),
+    })) as DataTableColumn[])
 
   return (
     <div className="space-y-4">
@@ -43,7 +64,6 @@ export function DataTable({
           />
         </div>
         <div className="flex-1" />
-        {/* Additional filters can go here */}
       </div>
 
       <Card className="border-border/40 bg-card overflow-hidden shadow-sm">
@@ -51,12 +71,12 @@ export function DataTable({
           <table className="w-full text-left border-collapse">
             <thead className="bg-muted/50 border-b border-border/40">
               <tr>
-                {Object.keys(data[0] || {}).filter(k => k !== 'id' && k !== 'avatar').map((key) => (
+                {displayColumns.map((col) => (
                   <th 
-                    key={key} 
+                    key={col.key} 
                     className="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground"
                   >
-                    {key.replace(/([A-Z])/g, ' $1').trim()}
+                    {col.label}
                   </th>
                 ))}
                 {actions && <th className="px-6 py-4 text-right" />}
@@ -66,9 +86,12 @@ export function DataTable({
               {filteredData.length > 0 ? (
                 filteredData.map((item, i) => (
                   <tr key={item.id || i} className="group hover:bg-muted/20 transition-colors">
-                    {Object.entries(item).filter(([k]) => k !== 'id' && k !== 'avatar').map(([key, value], idx) => (
+                    {displayColumns.map((col, idx) => (
                       <td key={idx} className="px-6 py-4 whitespace-nowrap text-sm text-foreground font-bold">
-                        {renderCell(key, value)}
+                        {col.render 
+                          ? col.render(item[col.key], item) 
+                          : renderDefaultCell(col.key, item[col.key])
+                        }
                       </td>
                     ))}
                     {actions && (
@@ -82,7 +105,7 @@ export function DataTable({
                 ))
               ) : (
                 <tr>
-                  <td colSpan={20} className="px-6 py-12 text-center text-muted-foreground italic text-sm">
+                  <td colSpan={displayColumns.length + (actions ? 1 : 0)} className="px-6 py-12 text-center text-muted-foreground italic text-sm font-medium">
                     No results found matching your search.
                   </td>
                 </tr>
@@ -95,12 +118,16 @@ export function DataTable({
   )
 }
 
-function renderCell(key: string, value: any) {
+function renderDefaultCell(key: string, value: any) {
   if (key === "status") {
     return (
       <Badge 
-        variant={value === "active" ? "success" : value === "pending" ? "warning" : (value === "rejected" || value === "error") ? "destructive" : "secondary"}
-        className="rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter"
+         className={cn(
+            "rounded-full px-2 py-0.5 text-[9px] font-bold uppercase tracking-tighter border-none",
+            value === "active" || value === "completed" ? "bg-emerald-500/10 text-emerald-600" :
+            value === "pending" || value === "processing" ? "bg-amber-500/10 text-amber-600" :
+            "bg-destructive/10 text-destructive"
+         )}
       >
         {value}
       </Badge>
@@ -117,7 +144,7 @@ function renderCell(key: string, value: any) {
   }
 
   if (typeof value === "string" && value.includes("@")) {
-    return <span className="text-muted-foreground font-medium">{value}</span>
+    return <span className="text-muted-foreground font-medium text-xs">{value}</span>
   }
 
   return <span className="font-bold text-foreground/90">{String(value)}</span>

@@ -2,7 +2,7 @@
 
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-export type ModalType = "CREATE_USER" | "EDIT_USER" | "DELETE_USER" | "CREATE_TASK" | "EDIT_TASK" | "DELETE_TASK" | "EDIT_PAYMENT" | "CREATE_FREELANCER"
+export type ModalType = "CREATE_USER" | "EDIT_USER" | "DELETE_USER" | "CREATE_TASK" | "EDIT_TASK" | "DELETE_TASK" | "EDIT_PAYMENT" | "CREATE_FREELANCER" | "WITHDRAW_FUNDS"
 
 interface ModalData {
   user?: any
