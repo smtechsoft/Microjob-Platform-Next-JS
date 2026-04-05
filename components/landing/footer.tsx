@@ -46,11 +46,11 @@ export function Footer() {
             <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
               <Wallet className="size-5" />
             </div>
-            <span className="text-xl font-black tracking-tighter text-zinc-950 dark:text-white uppercase transition-colors">
-              Micro<span className="text-emerald-600 dark:text-primary font-black">Jobs</span>
+            <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">
+              Micro<span className="text-primary! font-black">Jobs</span>
             </span>
           </Link>
-          <p className="text-xs text-zinc-700 dark:text-zinc-400 leading-relaxed italic max-w-xs font-medium">
+          <p className="text-xs text-muted-contrast leading-relaxed italic max-w-xs font-medium">
              Empowering freelancers and agencies globally with transparent, decentralized micro-tasking and instant payouts.
           </p>
           <div className="flex items-center gap-4 pt-4">
@@ -64,10 +64,10 @@ export function Footer() {
 
         {footerLinks.map((group) => (
           <div key={group.title} className="space-y-6">
-            <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-950 dark:text-white">{group.title}</h4>
+            <h4 className="text-[10px] font-black uppercase tracking-widest text-high-contrast">{group.title}</h4>
             <div className="flex flex-col gap-4">
               {group.links.map((link) => (
-                <Link key={link.label} href={link.href} className="text-xs font-bold text-zinc-700 dark:text-zinc-400 hover:text-primary dark:hover:text-primary transition-colors">
+                <Link key={link.label} href={link.href} className="text-xs font-bold text-muted-contrast hover:text-primary dark:hover:text-primary transition-colors">
                   {link.label}
                 </Link>
               ))}
@@ -77,10 +77,10 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-[10px] font-black uppercase tracking-widest text-zinc-700 dark:text-zinc-500">
+        <p className="text-[10px] font-black uppercase tracking-widest text-muted-contrast">
            &copy; 2026 MicroJobs Portal. All Rights Reserved.
         </p>
-        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-950 dark:text-white italic">
+        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-high-contrast italic">
            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
            System Secure & operational
         </div>

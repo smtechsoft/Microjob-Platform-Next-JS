@@ -66,7 +66,7 @@ export function DataTable({
         <div className="flex-1" />
       </div>
 
-      <Card className="border-border/40 bg-card overflow-hidden shadow-sm">
+      <Card className="border border-border/50 bg-card overflow-hidden shadow-none rounded-2xl">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead className="bg-muted/50 border-b border-border/40">

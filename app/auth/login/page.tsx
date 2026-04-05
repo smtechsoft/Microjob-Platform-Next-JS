@@ -26,7 +26,7 @@ export default function LoginPage() {
       transition={{ duration: 0.3 }}
       className="w-full max-w-md"
     >
-      <Card className="border border-border/40 bg-card shadow-2xl relative overflow-hidden">
+      <Card className="border border-border/50 bg-card rounded-2xl relative overflow-hidden shadow-none">
         {/* Top Accent Line */}
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
         

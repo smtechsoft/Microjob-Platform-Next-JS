@@ -43,8 +43,8 @@ export function Navbar() {
           <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
             <Wallet className="size-5" />
           </div>
-          <span className="text-xl font-black tracking-tighter text-[#0a0a0a]! dark:text-white! uppercase transition-colors">
-            Micro<span className="text-emerald-700! dark:text-primary! font-black">Jobs</span>
+          <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">
+            Micro<span className="text-primary! font-black">Jobs</span>
           </span>
         </Link>
 
@@ -54,7 +54,7 @@ export function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-[11px] font-bold uppercase tracking-widest text-[#1a1a1a]! dark:text-zinc-400! hover:text-primary! dark:hover:text-primary! transition-colors cursor-pointer"
+              className="text-[11px] font-bold uppercase tracking-widest text-muted-contrast hover:text-primary! dark:hover:text-primary! transition-colors cursor-pointer"
             >
               {link.label}
             </a>

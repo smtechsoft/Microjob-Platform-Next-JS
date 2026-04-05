@@ -68,10 +68,10 @@ export function Features() {
             <Badge className="bg-emerald-500/10 text-emerald-600 border-none px-3 py-0.5 rounded-full uppercase text-[9px] font-black tracking-widest">
               Freelancer Power
             </Badge>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-[#0a0a0a]! dark:text-white! leading-[0.9]">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-high-contrast leading-[0.9]">
               Work Anywhere. <br /><span className="text-emerald-800! dark:text-primary! italic">Earn Instantly.</span>
             </h2>
-            <p className="text-base text-[#2a2a2a]! dark:text-zinc-400! font-medium max-w-lg leading-relaxed">
+            <p className="text-base text-muted-contrast font-medium max-w-lg leading-relaxed">
               We've built the ultimate ecosystem for freelancers to find high-paying microjobs with guaranteed same-day payouts.
             </p>
             <div className="grid gap-6 pt-6">
@@ -86,16 +86,16 @@ export function Features() {
                      <div className={`p-2 rounded-lg size-10 flex items-center justify-center shrink-0 ${f.color} transition-transform group-hover:scale-110`}>
                         <f.icon className="size-5" />
                      </div>
-                     <div className="space-y-1">
-                        <h4 className="text-sm font-black text-[#0a0a0a]! dark:text-white! uppercase tracking-tight leading-none">{f.title}</h4>
-                        <p className="text-xs text-[#2a2a2a]! dark:text-zinc-400! leading-relaxed">{f.description}</p>
-                     </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-black text-high-contrast uppercase tracking-tight leading-none">{f.title}</h4>
+                        <p className="text-xs text-muted-contrast leading-relaxed">{f.description}</p>
+                      </div>
                   </motion.div>
                ))}
             </div>
           </div>
           
-          <div className="flex-1 w-full rounded-[2rem] border border-border/40 aspect-video relative overflow-hidden shadow-2xl ring-1 ring-white/10 dark:ring-white/5">
+          <div className="flex-1 w-full rounded-3xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
              <img 
                 src="/landing/hero-preview.png" 
                 alt="Freelancer Workspace Preview" 
@@ -113,10 +113,10 @@ export function Features() {
             <Badge className="bg-purple-500/10 text-purple-600 border-none px-3 py-0.5 rounded-full uppercase text-[9px] font-black tracking-widest">
               Agency Suite
             </Badge>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-[#0a0a0a]! dark:text-white! leading-[0.9]">
-              Scale Your Team. <br /><span className="text-secondary! italic dark:text-secondary! italic">Manage Simply.</span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-high-contrast leading-[0.9]">
+              Scale Your Team. <br /><span className="text-secondary! italic">Manage Simply.</span>
             </h2>
-            <p className="text-base text-[#2a2a2a]! dark:text-zinc-400! font-medium max-w-lg leading-relaxed">
+            <p className="text-base text-muted-contrast font-medium max-w-lg leading-relaxed">
               Powerful tools for agencies to deploy campaigns, verify task accuracy, and manage payouts at scale.
             </p>
             <div className="grid gap-6 pt-6">
@@ -131,16 +131,16 @@ export function Features() {
                      <div className={`p-2 rounded-lg size-10 flex items-center justify-center shrink-0 ${f.color} transition-transform group-hover:scale-110`}>
                         <f.icon className="size-5" />
                      </div>
-                     <div className="space-y-1">
-                        <h4 className="text-sm font-black text-[#0a0a0a]! dark:text-white! uppercase tracking-tight leading-none">{f.title}</h4>
-                        <p className="text-xs text-[#2a2a2a]! dark:text-zinc-400! leading-relaxed">{f.description}</p>
-                     </div>
+                      <div className="space-y-1">
+                        <h4 className="text-sm font-black text-high-contrast uppercase tracking-tight leading-none">{f.title}</h4>
+                        <p className="text-xs text-muted-contrast leading-relaxed">{f.description}</p>
+                      </div>
                   </motion.div>
                ))}
             </div>
           </div>
           
-          <div className="flex-1 w-full rounded-[2rem] border border-border/40 aspect-video relative overflow-hidden shadow-2xl ring-1 ring-white/10 dark:ring-white/5">
+          <div className="flex-1 w-full rounded-3xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
              <img 
                 src="/landing/agency-preview.png" 
                 alt="Agency Management Preview" 

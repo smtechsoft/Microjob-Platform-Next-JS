@@ -89,7 +89,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05, duration: 0.4 }}
           >
-            <Card className="border border-border/40 bg-card shadow-sm transition-shadow hover:shadow-md">
+            <Card className="border border-border/50 bg-card transition-colors hover:border-primary/20">
               <div className="p-5">
                 <div className="flex items-center justify-between">
                   <div className={stat.color + " rounded-lg p-2"}>
@@ -125,7 +125,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        <Card className="col-span-1 lg:col-span-4 border border-border/40 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-4 border border-border/50 bg-card">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-foreground">
                {role === "freelancer" ? "Earnings History" : "Platform Revenue"}
@@ -148,7 +148,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
           </CardContent>
         </Card>
 
-        <Card className="col-span-1 lg:col-span-3 border border-border/40 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-3 border border-border/50 bg-card">
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
               <CardTitle className="text-lg font-bold text-foreground">Activity</CardTitle>
@@ -189,7 +189,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
 
       {(role === "admin" || role === "agent") && (
          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
+            <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
                <CardContent className="p-5 flex items-center gap-4">
                <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
                   <Users className="size-5" />
@@ -203,7 +203,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                </div>
                </CardContent>
             </Card>
-            <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
+            <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
                <CardContent className="p-5 flex items-center gap-4">
                <div className="size-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                   <DollarSign className="size-5" />

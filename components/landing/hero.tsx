@@ -34,16 +34,16 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.5 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-[#0a0a0a]! dark:text-white!"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-high-contrast"
           >
-            Turn Your Skills Into <br /><span className="text-emerald-800! dark:text-primary! italic">Instant Earnings.</span>
+            Turn Your Skills Into <br /><span className="text-primary! italic">Instant Earnings.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg text-[#2a2a2a] dark:text-zinc-400 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium"
+            className="text-base md:text-lg text-muted-contrast leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium"
           >
             The world's most transparent microjob platform. Whether you're a freelancer looking for tasks or an agency managing thousands, we provide the tools to scale your success.
           </motion.p>
@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="flex-1 w-full max-w-2xl relative"
         >
-          <div className="relative rounded-[2.5rem] bg-zinc-100 dark:bg-card border border-border/40 shadow-2xl overflow-hidden aspect-[4/3] ring-1 ring-black/5 dark:ring-white/5">
+          <div className="relative rounded-3xl bg-zinc-100 dark:bg-card border border-border/40 overflow-hidden aspect-[4/3] ring-1 ring-black/5 dark:ring-white/5">
              <img 
                 src="/landing/hero-preview.png" 
                 alt="MicroJob Analytics Preview" 
@@ -104,7 +104,7 @@ export function Hero() {
           <motion.div 
             animate={{ y: [0, -15, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -top-6 -right-6 p-4 rounded-2xl bg-card border border-border/40 shadow-2xl z-20 backdrop-blur-md"
+            className="absolute -top-6 -right-6 p-4 rounded-2xl bg-card border border-border/40 z-20 backdrop-blur-md"
           >
              <div className="flex items-center gap-3">
                 <div className="size-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center">

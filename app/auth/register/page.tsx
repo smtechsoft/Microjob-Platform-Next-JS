@@ -31,7 +31,7 @@ export default function RegisterPage() {
       transition={{ duration: 0.3 }}
       className="w-full max-w-xl py-12"
     >
-      <Card className="border border-border/40 bg-card shadow-2xl relative overflow-hidden">
+      <Card className="border border-border/50 bg-card rounded-2xl relative overflow-hidden shadow-none">
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
         
         <CardHeader className="space-y-2 pb-8 pt-10 px-8 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between">

@@ -122,3 +122,18 @@ body {
   color: var(--foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
 }
+
+@layer utilities {
+  .text-high-contrast {
+    color: #0a0a0a !important;
+  }
+  .dark .text-high-contrast {
+    color: #ffffff !important;
+  }
+  .text-muted-contrast {
+    color: #2a2a2a !important;
+  }
+  .dark .text-muted-contrast {
+    color: #a1a1aa !important;
+  }
+}

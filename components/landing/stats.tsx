@@ -45,15 +45,15 @@ export function Stats() {
               className="group text-center space-y-3"
             >
               <div className="flex justify-center">
-                <div className={`p-3 rounded-2xl bg-card border border-border/40 shadow-sm transition-transform group-hover:scale-110 group-hover:bg-primary/5`}>
+                <div className="p-3 rounded-2xl bg-card border border-border/40 transition-transform group-hover:scale-110 group-hover:bg-primary/5">
                   <stat.icon className={`size-6 ${stat.color}`} />
                 </div>
               </div>
               <div className="space-y-1">
-                <h3 className="text-3xl md:text-4xl font-black tracking-tighter text-[#0a0a0a] dark:text-white">
+                <h3 className="text-3xl md:text-4xl font-black tracking-tighter text-high-contrast">
                   {stat.value}
                 </h3>
-                <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-[#2a2a2a] dark:text-zinc-400 italic">
+                <p className="text-[10px] md:text-xs font-black uppercase tracking-widest text-muted-contrast italic">
                   {stat.label}
                 </p>
               </div>

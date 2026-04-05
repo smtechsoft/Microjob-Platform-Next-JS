@@ -15,7 +15,7 @@ export function Navbar({
   role?: string
 }) {
   return (
-    <header className="sticky top-0 z-30 h-16 w-full border-b border-slate-200 dark:border-border/50 bg-white dark:bg-background/60 backdrop-blur-md shadow-sm dark:shadow-none">
+    <header className="sticky top-0 z-30 h-16 w-full border-b border-border/40 bg-background/80 backdrop-blur-md shadow-none">
       <div className="flex h-full items-center px-4 md:px-6 lg:ml-64">
         <div className="flex flex-1 items-center">
           <Button 
@@ -31,7 +31,7 @@ export function Navbar({
         <div className="flex items-center space-x-2">
           <Button variant="ghost" size="icon" className="rounded-lg relative hover:bg-muted transition-colors">
             <Bell className="size-4.5 text-muted-foreground" />
-            <span className="absolute right-2.5 top-2.5 size-2 rounded-full border-2 border-background bg-secondary shadow-sm" />
+            <span className="absolute right-2.5 top-2.5 size-2 rounded-full border-background bg-secondary" />
           </Button>
 
           <div className="mx-2 h-4 w-px bg-border/50" />
@@ -40,10 +40,10 @@ export function Navbar({
 
           <div className="ml-3 flex items-center space-x-3">
             <div className="hidden flex-col items-end text-right md:flex">
-              <span className="text-sm font-bold text-foreground leading-none">John Doe</span>
-              <span className="mt-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{role} Panel</span>
+              <span className="text-sm font-bold text-high-contrast leading-none">John Doe</span>
+              <span className="mt-1 text-[10px] font-bold text-muted-contrast uppercase tracking-wider">{role} Panel</span>
             </div>
-            <Avatar className="size-9 border border-border/50 shadow-sm transition-transform hover:scale-105">
+            <Avatar className="size-9 border border-border/50 transition-transform hover:scale-105">
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
