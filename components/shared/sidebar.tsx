@@ -13,7 +13,8 @@ import {
   UserCircle,
   LogOut,
   Target,
-  Percent
+  Percent,
+  Bell
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -36,12 +37,23 @@ const getMenuItems = (role: string) => {
     ]
   }
 
+  if (role === "agent") {
+    return [
+      ...base,
+      { icon: Users, label: "Freelancers", href: "/agent/freelancers" },
+      { icon: Wallet, label: "Wallet & Earnings", href: "/agent/wallet" },
+      { icon: BarChart3, label: "Reports & Analytics", href: "/agent/reports" },
+      { icon: Bell, label: "Notifications", href: "/agent/notifications" },
+      { icon: Settings, label: "Settings", href: "/agent/settings" },
+    ]
+  }
+
   return [
     ...base,
-    { icon: Target, label: "Platform Tasks", href: `/${role}/tasks` },
-    { icon: Wallet, label: "My Wallet", href: `/${role}/wallet` },
-    { icon: UserCircle, label: "Profile", href: `/${role}/profile` },
-    { icon: Settings, label: "Settings", href: `/${role}/settings` },
+    { icon: Target, label: "Platform Tasks", href: "/freelancer/tasks" },
+    { icon: Wallet, label: "My Wallet", href: "/freelancer/wallet" },
+    { icon: UserCircle, label: "Profile", href: "/freelancer/profile" },
+    { icon: Settings, label: "Settings", href: "/freelancer/settings" },
   ]
 }
 

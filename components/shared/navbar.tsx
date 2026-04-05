@@ -7,7 +7,13 @@ import { Button } from "@/components/shared/ui/button"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/shared/ui/avatar"
 
-export function Navbar({ onToggleSidebar }: { onToggleSidebar: () => void }) {
+export function Navbar({ 
+  onToggleSidebar,
+  role = "admin"
+}: { 
+  onToggleSidebar: () => void,
+  role?: string
+}) {
   return (
     <header className="sticky top-0 z-30 h-16 w-full border-b border-slate-200 dark:border-border/50 bg-white dark:bg-background/60 backdrop-blur-md shadow-sm dark:shadow-none">
       <div className="flex h-full items-center px-4 md:px-6 lg:ml-64">
@@ -35,7 +41,7 @@ export function Navbar({ onToggleSidebar }: { onToggleSidebar: () => void }) {
           <div className="ml-3 flex items-center space-x-3">
             <div className="hidden flex-col items-end text-right md:flex">
               <span className="text-sm font-bold text-foreground leading-none">John Doe</span>
-              <span className="mt-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Administrator</span>
+              <span className="mt-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{role} Panel</span>
             </div>
             <Avatar className="size-9 border border-border/50 shadow-sm transition-transform hover:scale-105">
               <AvatarImage src="https://github.com/shadcn.png" />

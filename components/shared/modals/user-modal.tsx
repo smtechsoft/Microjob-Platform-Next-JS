@@ -36,15 +36,16 @@ const formSchema = z.object({
 export function UserModal() {
   const { isOpen, close, type, data } = useModal()
 
-  const isModalOpen = isOpen && (type === "CREATE_USER" || type === "EDIT_USER")
+  const isModalOpen = isOpen && (type === "CREATE_USER" || type === "EDIT_USER" || type === "CREATE_FREELANCER")
   const isEdit = type === "EDIT_USER"
+  const isFreelancerOnly = type === "CREATE_FREELANCER"
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema) as any,
     defaultValues: {
       name: "",
       email: "",
-      role: "freelancer",
+      role: isFreelancerOnly ? "freelancer" : "freelancer",
       status: true,
     },
   })
@@ -61,16 +62,16 @@ export function UserModal() {
       form.reset({
         name: "",
         email: "",
-        role: "freelancer",
+        role: isFreelancerOnly ? "freelancer" : "freelancer",
         status: true,
       })
     }
-  }, [data, form])
+  }, [data, form, isFreelancerOnly])
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       // API call logic here
-      console.log(isEdit ? "Updating user:" : "Creating user:", values)
+      console.log(isEdit ? "Updating user:" : isFreelancerOnly ? "Registering freelancer:" : "Creating user:", values)
       close()
     } catch (error) {
       console.error(error)
@@ -87,12 +88,14 @@ export function UserModal() {
       <DialogContent className="sm:max-w-[425px] bg-card border-border/50">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">
-            {isEdit ? "Edit User" : "Create New User"}
+            {isEdit ? "Edit User" : isFreelancerOnly ? "Register New Freelancer" : "Create New User"}
           </DialogTitle>
           <DialogDescription className="text-muted-foreground">
             {isEdit 
               ? "Update user details and account permissions." 
-              : "Add a new member to the platform."}
+              : isFreelancerOnly 
+                ? "Add a new freelancer to your agency list."
+                : "Add a new member to the platform."}
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6 py-4">
