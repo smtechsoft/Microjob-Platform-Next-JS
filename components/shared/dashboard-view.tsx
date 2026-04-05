@@ -95,14 +95,14 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
     <div className="space-y-8">
       <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-foreground">Overview</h2>
-          <p className="text-sm text-muted-foreground">Welcome back, John. Here is your <span className="font-bold text-secondary capitalize">{role}</span> dashboard.</p>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Overview</h2>
+          <p className="text-sm font-medium text-muted-foreground">Welcome back, John. Here is your <span className="font-bold text-primary capitalize">{role}</span> dashboard.</p>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="rounded-lg border-border/50 text-xs font-bold uppercase tracking-wider">
+          <Button variant="outline" size="sm" className="rounded-lg border-border text-xs font-bold uppercase tracking-wider text-foreground">
             Reports
           </Button>
-          <Button size="sm" className="rounded-lg bg-primary text-primary-foreground shadow-sm text-xs font-bold uppercase tracking-wider">
+          <Button size="sm" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm text-xs font-bold uppercase tracking-wider">
             Add Task
           </Button>
         </div>
@@ -120,11 +120,11 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
             <Card className="border border-border/40 bg-card shadow-sm transition-shadow hover:shadow-md">
               <div className="p-5">
                 <div className="flex items-center justify-between">
-                  <div className={cn("rounded-lg p-2 bg-muted/50 text-foreground")}>
+                  <div className={stat.color + " rounded-lg p-2"}>
                     <stat.icon className="size-5" />
                   </div>
                   {stat.trend === "up" ? (
-                    <div className="text-[10px] font-bold text-secondary flex items-center bg-secondary/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                    <div className="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
                       <ArrowUpRight className="mr-0.5 size-3" />
                       12%
                     </div>
@@ -138,7 +138,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                 <div className="mt-4">
                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">{stat.title}</p>
                   <h3 className="text-2xl font-bold text-foreground mt-2 tracking-tight">{stat.value}</h3>
-                  <p className="text-[10px] text-muted-foreground/70 font-medium mt-1 flex items-center italic">
+                  <p className="text-[10px] text-muted-foreground font-medium mt-1 flex items-center italic">
                     {stat.description}
                   </p>
                 </div>
@@ -149,11 +149,10 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        {/* Earnings Chart Placeholder */}
         <Card className="col-span-1 lg:col-span-4 border border-border/40 bg-card shadow-sm">
           <CardHeader>
-            <CardTitle className="text-lg font-bold">Platform Earnings</CardTitle>
-            <CardDescription className="text-xs">Monthly revenue overview across all services.</CardDescription>
+            <CardTitle className="text-lg font-bold text-foreground">Platform Earnings</CardTitle>
+            <CardDescription className="text-xs text-muted-foreground">Monthly revenue overview across all services.</CardDescription>
           </CardHeader>
           <CardContent className="h-[300px] flex items-center justify-center border-t border-border/30">
             <div className="flex flex-col items-center gap-4 text-center">
@@ -163,18 +162,17 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               </div>
               <div className="space-y-1">
                 <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Chart Data Processing</p>
-                <p className="text-[10px] text-muted-foreground/60 italic">Real-time visualization coming soon</p>
+                <p className="text-[10px] text-muted-foreground italic">Real-time visualization coming soon</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Recent Activity */}
         <Card className="col-span-1 lg:col-span-3 border border-border/40 bg-card shadow-sm">
           <CardHeader className="flex flex-row items-center justify-between">
             <div>
-              <CardTitle className="text-lg font-bold">Activity</CardTitle>
-              <CardDescription className="text-xs">Latest platform interactions.</CardDescription>
+              <CardTitle className="text-lg font-bold text-foreground">Activity</CardTitle>
+              <CardDescription className="text-xs text-muted-foreground">Latest platform interactions.</CardDescription>
             </div>
             <Button variant="ghost" size="sm" className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:bg-secondary/10">All</Button>
           </CardHeader>
@@ -185,7 +183,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                   <div className="relative mt-0.5">
                     <Avatar className="size-8 border border-border/50">
                       <AvatarImage src={activity.avatar} />
-                      <AvatarFallback className="text-[10px] font-bold">{activity.user[0]}</AvatarFallback>
+                      <AvatarFallback className="text-[10px] font-bold text-muted-foreground">{activity.user[0]}</AvatarFallback>
                     </Avatar>
                     <div className={cn(
                       "absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-card",
@@ -199,7 +197,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                       <span className="text-[9px] font-bold text-muted-foreground uppercase whitespace-nowrap">{activity.time}</span>
                     </div>
                     <p className="text-[11px] text-muted-foreground leading-tight truncate">
-                      {activity.action} <span className="font-bold text-foreground/70">{activity.target}</span>
+                      {activity.action} <span className="font-bold text-foreground">{activity.target}</span>
                     </p>
                   </div>
                 </div>
@@ -209,44 +207,43 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
         </Card>
       </div>
 
-      {/* Quick Actions */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-         <Card className="border border-border/40 bg-muted/20 hover:bg-muted/40 transition-colors cursor-pointer group">
+         <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
             <CardContent className="p-5 flex items-center gap-4">
               <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
                 <Users className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">Agent Requests</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">12 pending applications</p>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Agent Requests</h4>
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight">12 pending applications</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-primary" />
               </div>
             </CardContent>
          </Card>
-         <Card className="border border-border/40 bg-muted/20 hover:bg-muted/40 transition-colors cursor-pointer group">
+         <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
             <CardContent className="p-5 flex items-center gap-4">
               <div className="size-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                 <DollarSign className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">Payout Review</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">$1,250 in review</p>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Payout Review</h4>
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight">$1,250 in review</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-secondary" />
               </div>
             </CardContent>
          </Card>
-         <Card className="border border-border/40 bg-muted/20 hover:bg-muted/40 transition-colors cursor-pointer group">
+         <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
             <CardContent className="p-5 flex items-center gap-4">
               <div className="size-10 rounded-lg bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-105 transition-transform">
                 <AlertCircle className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">Dispute Center</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">3 active disputes</p>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">Dispute Center</h4>
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tight">3 active disputes</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-destructive" />

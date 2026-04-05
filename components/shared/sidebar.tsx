@@ -12,21 +12,38 @@ import {
   BarChart3, 
   UserCircle,
   LogOut,
-  Target
+  Target,
+  Percent
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/shared/ui/button"
 
-const getMenuItems = (role: string) => [
-  { icon: LayoutDashboard, label: "Dashboard", href: `/${role}/dashboard` },
-  { icon: Users, label: "User Management", href: `/${role}/users`, roles: ["admin"] },
-  { icon: Target, label: "Task Management", href: `/${role}/tasks` },
-  { icon: Wallet, label: "Earnings/Wallet", href: `/${role}/wallet` },
-  { icon: BarChart3, label: "Reports", href: `/${role}/reports` },
-  { icon: UserCircle, label: "Profile", href: `/${role}/profile` },
-  { icon: Settings, label: "Settings", href: `/${role}/settings` },
-]
+const getMenuItems = (role: string) => {
+  const base = [
+    { icon: LayoutDashboard, label: "Dashboard", href: `/${role}/dashboard` },
+  ]
+
+  if (role === "admin") {
+    return [
+      ...base,
+      { icon: Users, label: "User Management", href: "/admin/users" },
+      { icon: Target, label: "Tasks", href: "/admin/tasks" },
+      { icon: Wallet, label: "Payments & Wallet", href: "/admin/payments" },
+      { icon: Percent, label: "Referral Settings", href: "/admin/referrals" },
+      { icon: BarChart3, label: "Reports & Analytics", href: "/admin/reports" },
+      { icon: Settings, label: "System Settings", href: "/admin/settings" },
+    ]
+  }
+
+  return [
+    ...base,
+    { icon: Target, label: "Platform Tasks", href: `/${role}/tasks` },
+    { icon: Wallet, label: "My Wallet", href: `/${role}/wallet` },
+    { icon: UserCircle, label: "Profile", href: `/${role}/profile` },
+    { icon: Settings, label: "Settings", href: `/${role}/settings` },
+  ]
+}
 
 export function Sidebar({ 
   role = "admin",
@@ -66,24 +83,24 @@ export function Sidebar({
           </div>
 
           <nav className="flex-1 space-y-0.5">
-            {menuItems.filter(item => !item.roles || item.roles.includes(role)).map((item) => {
+            {menuItems.map((item) => {
               const isActive = pathname === item.href
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen?.(false)}
-                  className={cn(
-                    "group flex items-center rounded-md px-3 py-2 text-sm font-medium transition-all duration-200",
-                    isActive 
-                      ? "bg-secondary/10 text-secondary" 
-                      : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                  )}
-                >
-                  <item.icon className={cn("mr-3 size-4.5", isActive ? "text-secondary" : "text-muted-foreground/70 group-hover:text-foreground")} />
-                  <span className="flex-1">{item.label}</span>
-                  {isActive && <div className="size-1.5 rounded-full bg-secondary" />}
-                </Link>
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setOpen?.(false)}
+                    className={cn(
+                      "group flex items-center rounded-md px-3 py-2 text-sm font-bold transition-all duration-200",
+                      isActive 
+                        ? "bg-primary/10 text-primary" 
+                        : "text-muted-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                    )}
+                  >
+                    <item.icon className={cn("mr-3 size-4.5", isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground")} />
+                    <span className="flex-1">{item.label}</span>
+                    {isActive && <div className="size-1.5 rounded-full bg-primary" />}
+                  </Link>
               )
             })}
           </nav>

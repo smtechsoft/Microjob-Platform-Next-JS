@@ -18,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/shared/ui/button"
 import { Badge } from "@/components/shared/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/shared/ui/avatar"
+import { cn } from "@/lib/utils"
 
 const stats = [
   {

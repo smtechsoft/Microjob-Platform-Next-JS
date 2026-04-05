@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/shared/ui/avat
 
 export function Navbar({ onToggleSidebar }: { onToggleSidebar: () => void }) {
   return (
-    <header className="sticky top-0 z-30 h-16 w-full border-b border-border/50 bg-background/60 backdrop-blur-md">
+    <header className="sticky top-0 z-30 h-16 w-full border-b border-slate-200 dark:border-border/50 bg-white dark:bg-background/60 backdrop-blur-md shadow-sm dark:shadow-none">
       <div className="flex h-full items-center px-4 md:px-6 lg:ml-64">
         <div className="flex flex-1 items-center">
           <Button 
