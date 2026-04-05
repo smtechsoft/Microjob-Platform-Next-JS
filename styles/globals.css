@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: oklch(100% 0 0);
+  --foreground: oklch(14.5% 0 0);
+  --card: oklch(100% 0 0);
+  --card-foreground: oklch(14.5% 0 0);
+  --popover: oklch(100% 0 0);
+  --popover-foreground: oklch(14.5% 0 0);
+  --primary: #007542;
+  --primary-foreground: #fff;
+  --secondary: #58bb43;
+  --secondary-foreground: #007542;
+  --muted: oklch(97% 0 0);
+  --muted-foreground: oklch(55.6% 0 0);
+  --accent: #c1ff1c;
+  --accent-foreground: #013220;
+  --destructive: oklch(57.7% 0.245 27.325);
+  --destructive-foreground: oklch(57.7% 0.245 27.325);
+  --border: oklch(92.2% 0 0);
+  --input: oklch(92.2% 0 0);
+  --ring: #007542;
+  --radius: 0.625rem;
+  --sidebar: oklch(98.5% 0 0);
+  --sidebar-foreground: oklch(14.5% 0 0);
+  --sidebar-primary: oklch(20.5% 0 0);
+  --sidebar-primary-foreground: oklch(98.5% 0 0);
+  --sidebar-accent: oklch(97% 0 0);
+  --sidebar-accent-foreground: oklch(20.5% 0 0);
+  --sidebar-border: oklch(92.2% 0 0);
+  --sidebar-ring: oklch(70.8% 0 0);
+  --chart-1: #007542;
+  --chart-2: #1e8c45;
+  --chart-3: #3aa346;
+  --chart-4: #58bb43;
+  --chart-5: #c1ff1c;
+}
+
+.dark {
+  --background: #1b1e2b;
+  --foreground: #fff;
+  --card: #292d3e;
+  --card-foreground: #fff;
+  --popover: #292d3e;
+  --popover-foreground: #fff;
+  --primary: #1b1e2b;
+  --primary-foreground: #fff;
+  --secondary: #1e8c45;
+  --secondary-foreground: #fff;
+  --muted: #1b1e2b;
+  --muted-foreground: #fff;
+  --accent: #292d3e;
+  --accent-foreground: #fff;
+  --destructive: #ff5370;
+  --destructive-foreground: #fff;
+  --border: #32374d;
+  --input: #32374d;
+  --ring: #007542;
+  --sidebar: #1b1e2b;
+  --sidebar-foreground: #fff;
+  --sidebar-primary: #1b1e2b;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #32374d;
+  --sidebar-accent-foreground: #fff;
+  --sidebar-border: #32374d;
+  --sidebar-ring: #007542;
+  --chart-1: #82aaff;
+  --chart-2: #c792ea;
+  --chart-3: #89ddff;
+  --chart-4: #f07178;
+  --chart-5: #c3e88d;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
