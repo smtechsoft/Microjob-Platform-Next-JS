@@ -71,6 +71,16 @@ export function Navbar({
           >
             <Menu className="size-5" />
           </Button>
+
+          {/* Desktop/Mobile Center Title */}
+          <div className="flex flex-1 items-center justify-center lg:justify-start">
+             <span className="text-sm font-black tracking-tighter uppercase text-high-contrast lg:hidden">
+                Task<span className="text-primary!">Go</span> Dashboard
+             </span>
+             <h2 className="hidden lg:block text-lg font-black tracking-tight text-high-contrast first-letter:uppercase">
+                {role} Panel
+             </h2>
+          </div>
         </div>
 
         <div className="flex items-center space-x-2">
