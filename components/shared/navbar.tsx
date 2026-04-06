@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Bell, User, MessageSquare, Menu, X, Clock, CheckCircle2, AlertCircle } from "lucide-react"
+import { Bell, User, MessageSquare, Menu, X, Clock, CheckCircle2, AlertCircle, Rocket } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 import { Button } from "@/components/shared/ui/button"
@@ -59,6 +59,8 @@ export function Navbar({
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  const isAdmin = role === "admin"
+
   return (
     <header className="sticky top-0 z-30 h-16 w-full border-b border-border/40 bg-background/80 backdrop-blur-md shadow-none">
       <div className="flex h-full items-center px-4 md:px-6 lg:ml-64">
@@ -72,13 +74,13 @@ export function Navbar({
             <Menu className="size-5" />
           </Button>
 
-          {/* Desktop/Mobile Center Title */}
-          <div className="flex flex-1 items-center justify-center lg:justify-start">
-             <span className="text-sm font-black tracking-tighter uppercase text-high-contrast lg:hidden">
-                Task<span className="text-primary!">Go</span> Dashboard
-             </span>
-             <h2 className="hidden lg:block text-lg font-black tracking-tight text-high-contrast first-letter:uppercase">
-                {role} Panel
+          {/* Title Context - Design is Original, Content is Dynamic */}
+          <div className="flex flex-1 items-center justify-center lg:justify-start gap-2.5">
+             <div className="size-7 rounded-lg flex items-center justify-center bg-primary/10">
+                <Rocket className="size-4 text-primary" strokeWidth={2.5} />
+             </div>
+             <h2 className="text-base font-bold tracking-tight text-foreground">
+                {isAdmin ? "Admin Portal" : "Freelancer Dashboard"}
              </h2>
           </div>
         </div>
@@ -94,8 +96,8 @@ export function Navbar({
               )}
               onClick={() => setShowNotifications(!showNotifications)}
             >
-              <Bell className="size-4.5 text-muted-foreground" />
-              <span className="absolute right-2.5 top-2.5 size-2 rounded-full border-background bg-secondary" />
+              <Bell className="size-5 text-muted-foreground" />
+              <span className="absolute right-2.5 top-2.5 size-2 rounded-full border-2 border-background bg-secondary" />
             </Button>
 
             <AnimatePresence>
@@ -105,7 +107,7 @@ export function Navbar({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 mt-2 w-80 rounded-xl border border-border/50 bg-card p-2 shadow-none z-50 overflow-hidden"
+                  className="absolute right-0 mt-2 w-80 rounded-xl border border-border/50 bg-card p-2 shadow-none z-50 overflow-hidden text-foreground"
                 >
                   <div className="flex items-center justify-between px-3 py-2 border-b border-border/40 mb-2">
                     <span className="text-[10px] font-black uppercase tracking-widest text-high-contrast">Notifications</span>
@@ -139,18 +141,20 @@ export function Navbar({
             </AnimatePresence>
           </div>
 
-          <div className="mx-2 h-4 w-px bg-border/50" />
+          <div className={cn("mx-2 h-4 w-px", isAdmin ? "bg-border/50" : "bg-border/50")} />
 
-          <ThemeToggle />
+          <div>
+            <ThemeToggle />
+          </div>
 
           <div className="ml-3 flex items-center space-x-3">
             <div className="hidden flex-col items-end text-right md:flex">
-              <span className="text-sm font-bold text-high-contrast leading-none">John Doe</span>
-              <span className="mt-1 text-[10px] font-bold text-muted-contrast uppercase tracking-wider">{role} Panel</span>
+              <span className="text-sm font-bold leading-none text-foreground">Sakil Ahmed</span>
+              <span className="mt-1 text-[10px] font-bold uppercase tracking-wider text-muted-contrast">{role} Portal</span>
             </div>
             <Avatar className="size-9 border border-border/50 transition-transform hover:scale-105">
               <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarFallback>SA</AvatarFallback>
             </Avatar>
           </div>
         </div>
