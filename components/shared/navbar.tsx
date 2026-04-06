@@ -75,12 +75,12 @@ export function Navbar({
           </Button>
 
           {/* Title Context - Design is Original, Content is Dynamic */}
-          <div className="flex flex-1 items-center justify-center lg:justify-start gap-2.5">
+          <div className="flex items-center gap-2.5">
              <div className="size-7 rounded-lg flex items-center justify-center bg-primary/10">
                 <Rocket className="size-4 text-primary" strokeWidth={2.5} />
              </div>
              <h2 className="text-base font-bold tracking-tight text-foreground">
-                {isAdmin ? "Admin Portal" : "Freelancer Dashboard"}
+                {role === "admin" ? "Admin Portal" : role === "agent" ? "Agent Portal" : "TaskGo Dashboard"}
              </h2>
           </div>
         </div>

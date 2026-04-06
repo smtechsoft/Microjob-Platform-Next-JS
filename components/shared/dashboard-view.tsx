@@ -15,7 +15,8 @@ import {
   Star,
   Zap,
   ShieldCheck,
-  ClipboardList
+  ClipboardList,
+  Award
 } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -37,10 +38,10 @@ const getStats = (role: string) => {
   }
   if (role === "agent") {
     return [
-      { title: "Agency Commission", value: "4250.00", description: "This month", icon: DollarSign, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
-      { title: "Managed Freelancers", value: "124", description: "8 active", icon: Users, trend: "up", color: "bg-secondary/10 text-secondary" },
-      { title: "Pending Reviews", value: "15", description: "Tasks to approve", icon: Clock, trend: "down", color: "bg-emerald-500/10 text-emerald-600" },
-      { title: "Success Rate", value: "96.5%", description: "Team average", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
+      { title: "Team Size", value: "12", description: "", icon: Users, trend: "up", color: "text-blue-500 bg-blue-500/10" },
+      { title: "Active Users", value: "8", description: "", icon: CheckCircle2, trend: "up", color: "text-emerald-500 bg-emerald-500/10" },
+      { title: "Commissions", value: "5000", description: "", icon: DollarSign, trend: "up", color: "text-rose-500 bg-rose-500/10" },
+      { title: "Agent Level", value: "Silver", description: "", icon: Award, trend: "neutral", color: "text-amber-600 bg-amber-500/10" },
     ]
   }
   // Freelancer Stats
@@ -323,177 +324,87 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
     )
   }
 
-  // Default Dashboard for Agent
-  return (
-    <div className="space-y-8">
-      <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-        <div>
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">Overview</h2>
-          <p className="text-sm font-medium text-muted-foreground">Welcome back. Here is your <span className="font-bold text-primary capitalize">{role}</span> dashboard.</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="rounded-lg border-border text-xs font-bold uppercase tracking-wider text-foreground transition-all hover:border-primary/20">
-            Reports
-          </Button>
-          <Button size="sm" className="rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-bold uppercase tracking-wider">
-            Add Task
-          </Button>
-        </div>
-      </div>
+  // Layout for AGENT matches the screenshot BUT WITH ORIGINAL DESIGN
+  if (role === "agent") {
+    return (
+      <div className="space-y-10">
+        <Header 
+          title="Hello AGENT, Demo!" 
+          subtitle="Manage your team and track commissions." 
+        />
 
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        {currentStats.map((stat, i) => (
-          <motion.div
-            key={stat.title}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05, duration: 0.4 }}
-            className="h-[220px]"
-          >
-            <Card className="h-full flex flex-col justify-center">
-              <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <div className={stat.color + " rounded-lg p-2.5"}>
-                    <stat.icon className="size-5" />
-                  </div>
-                  {stat.trend === "up" ? (
-                    <div className="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                      <ArrowUpRight className="mr-0.5 size-3" />
-                      ↑
-                    </div>
-                  ) : stat.trend === "down" ? (
-                    <div className="text-[10px] font-bold text-destructive flex items-center bg-destructive/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                      <ArrowDownRight className="mr-0.5 size-3" />
-                      ↓
-                    </div>
-                  ) : (
-                    <div className="text-[10px] font-bold text-muted-foreground flex items-center bg-muted/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                      Active
-                    </div>
-                  )}
-                </div>
-                <div className="mt-6">
-                  <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-2">{stat.title}</p>
-                  <h3 className="text-2xl font-black text-foreground tracking-tight leading-none">{stat.value}</h3>
-                  <p className="text-[10px] text-muted-foreground font-medium mt-3 flex items-center italic leading-none whitespace-nowrap overflow-hidden text-ellipsis">
-                    {stat.description}
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        <Card className="col-span-1 lg:col-span-4">
-          <CardHeader>
-            <CardTitle className="text-lg font-bold text-foreground lowercase first-letter:uppercase tracking-tight">
-              Platform Revenue
-            </CardTitle>
-            <CardDescription className="text-xs text-muted-foreground">
-              Monthly revenue overview across all services.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="h-[300px] flex items-center justify-center border-t border-border/10 bg-muted/5">
-            <div className="flex flex-col items-center gap-4 text-center">
-              <div className="relative size-32">
-                <div className="absolute inset-0 rounded-full border-2 border-muted border-t-primary animate-[spin_3s_linear_infinite]" />
-                <div className="absolute inset-4 rounded-full border-2 border-muted border-r-secondary animate-[spin_2s_linear_infinite]" />
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Analytics Processing</p>
-                <p className="text-[9px] text-muted-foreground italic">Visualization coming soon...</p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Left Column: Wallet Financials */}
+          <div className="space-y-6">
+            <WalletCard 
+              balance="1250500.00" 
+              pending="200.00" 
+              withdrawable="1000.00"
+              currency={currency}
+              onToggleCurrency={toggleCurrency}
+            />
+            {/* Agent Actions Column row - Orange Pending / Outline New Agent */}
+            <div className="flex gap-3">
+              <Button className="flex-1 h-12 rounded-xl bg-orange-600 hover:bg-orange-700 text-white font-bold uppercase tracking-widest text-[10px] shadow-none gap-3 border-0">
+                  <Clock className="size-5" />
+                  Pending Appr.
+              </Button>
+              <Button variant="outline" className="flex-1 h-12 rounded-xl border-border bg-card hover:bg-muted text-foreground font-bold uppercase tracking-widest text-[10px] shadow-none gap-3">
+                  <Users className="size-5" />
+                  New Agent
+              </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
 
-        <Card className="col-span-1 lg:col-span-3">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <div>
-              <CardTitle className="text-lg font-bold text-foreground">Recent Activity</CardTitle>
-              <CardDescription className="text-xs text-muted-foreground">Latest interactions.</CardDescription>
-            </div>
-            <Button variant="ghost" size="sm" className="text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-primary/5">View All</Button>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {activities.map((activity, i) => (
-                <div key={i} className="flex gap-3 group items-center">
-                  <div className="relative">
-                    <Avatar className="size-9 border border-border/50 group-hover:border-primary/50 transition-colors">
-                      <AvatarImage src={activity.avatar} />
-                      <AvatarFallback className="text-[10px] font-bold text-muted-foreground bg-muted/50">{activity.user[0] || 'S'}</AvatarFallback>
-                    </Avatar>
-                    <div className={cn(
-                      "absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-card",
-                      activity.status === "success" ? "bg-emerald-500" :
-                        activity.status === "pending" ? "bg-amber-500" : "bg-destructive"
-                    )} />
+          {/* Right Column: Performance Grid */}
+          <div className="space-y-6">
+            <h3 className="text-xs font-bold tracking-tight text-foreground uppercase tracking-widest opacity-60">Agent Performance</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {currentStats.map((stat, i) => (
+                <motion.div
+                  key={stat.title}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="bg-card border border-border/40 p-4 rounded-xl space-y-2 transition-colors hover:border-primary/20 cursor-pointer select-none"
+                  onClick={toggleCurrency}
+                >
+                  <div className={cn("size-8 rounded-lg flex items-center justify-center", stat.color)}>
+                    <stat.icon className="size-4" />
                   </div>
-                  <div className="flex-1 space-y-0.5 min-w-0">
-                    <div className="flex items-center justify-between">
-                      <p className="text-xs font-bold text-foreground truncate">{activity.user}</p>
-                      <span className="text-[9px] font-bold text-muted-foreground uppercase whitespace-nowrap ml-2">{activity.time}</span>
-                    </div>
-                    <p className="text-[11px] text-muted-foreground leading-tight truncate">
-                      {activity.action} <span className="font-bold text-foreground/80">{activity.target}</span>
-                    </p>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground tracking-tight leading-none flex items-baseline">
+                      {stat.title.includes("Commissions") ? (
+                        <span className="text-xs mr-0.5 opacity-60 font-bold">{symbol}</span>
+                      ) : null}
+                      {stat.title.includes("Commissions") ? formatValue(stat.value) : stat.value}
+                    </h4>
+                    <p className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mt-1 leading-none">{stat.title}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </div>
 
-      {role === "agent" && (
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <Card className="cursor-pointer group">
-            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
-              <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                <Users className="size-5" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground tracking-tight">Freelancer Requests</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">12 pending items</p>
-              </div>
-              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                <ArrowUpRight className="size-4 text-primary" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="cursor-pointer group">
-            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
-              <div className="size-11 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
-                <DollarSign className="size-5" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground tracking-tight">Payout Review</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">$1,250 in review</p>
-              </div>
-              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                <ArrowUpRight className="size-4 text-secondary" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="cursor-pointer group sm:col-span-2 lg:col-span-1">
-            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
-              <div className="size-11 rounded-xl bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-110 transition-transform">
-                <AlertCircle className="size-5" />
-              </div>
-              <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground tracking-tight">Dispute Center</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">3 active disputes</p>
-              </div>
-              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                <ArrowUpRight className="size-4 text-destructive" />
-              </div>
+        {/* Bottom Section: Wide Card for Sub-Agent Management */}
+        <div className="space-y-6">
+          <Card className="group border-border/40 hover:border-primary/20 transition-all bg-card shadow-none overflow-hidden cursor-pointer">
+            <CardContent className="p-6">
+               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                  <div className="space-y-1 text-center sm:text-left">
+                     <h3 className="text-lg font-bold text-foreground capitalize">Manage Sub-Agents</h3>
+                     <p className="text-xs text-muted-foreground">Monitor performance of your recruited agents.</p>
+                  </div>
+                  <Button className="h-10 px-8 rounded-lg bg-primary text-primary-foreground font-bold uppercase tracking-widest text-[10px] shadow-none gap-2">
+                     View Team
+                  </Button>
+               </div>
             </CardContent>
           </Card>
         </div>
-      )}
-    </div>
-  )
+      </div>
+    )
+  }
+  return null
 }
