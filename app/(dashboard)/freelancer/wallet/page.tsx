@@ -17,25 +17,11 @@ import { WalletCard } from "@/components/shared/wallet-card"
 
 const walletStats = [
   {
-    title: "Total Earnings",
-    value: "$1,450.25",
-    description: "Life-time income",
-    icon: TrendingUp,
-    color: "bg-emerald-500/10 text-emerald-600",
-  },
-  {
     title: "Available Balance",
     value: "420.50",
     description: "Ready to withdraw",
     icon: Wallet,
     color: "bg-blue-500/10 text-blue-600",
-  },
-  {
-    title: "Pending Approval",
-    value: "$85.00",
-    description: "From active tasks",
-    icon: Clock,
-    color: "bg-amber-500/10 text-amber-600",
   },
 ]
 
@@ -106,66 +92,47 @@ export default function FreelancerWalletPage() {
         onAction={() => open("WITHDRAW_FUNDS")}
       />
 
-      {/* Wallet Stats - Responsive Grid & Same Height Cards */}
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Wallet Stats - Single Wallet Card for Freelancers */}
+      <div className="max-w-md">
         {walletStats.map((stat, i) => (
-          stat.title === "Available Balance" ? (
-             <motion.div
-                key={stat.title}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="h-[220px]"
-              >
-                <WalletCard 
-                  balance="420.50" 
-                  pending="85.00" 
-                  withdrawable="335.50"
-                  className="h-full"
-                />
-              </motion.div>
-          ) : (
-            <motion.div
+           <motion.div
               key={stat.title}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05, duration: 0.4 }}
               className="h-[220px]"
             >
-              <Card className="border border-border/40 bg-card shadow-sm h-full flex flex-col justify-center">
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-4">
-                    <div className={stat.color + " rounded-lg p-2.5"}>
-                      <stat.icon className="size-5" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1.5">{stat.title}</p>
-                      <h3 className="text-xl font-bold text-foreground tracking-tight leading-none">{stat.value}</h3>
-                      <p className="text-[10px] text-muted-foreground font-medium mt-1.5 italic leading-none">{stat.description}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <WalletCard 
+                balance="420.50" 
+                pending="85.00" 
+                withdrawable="335.50"
+                className="h-full"
+              />
             </motion.div>
-          )
         ))}
       </div>
 
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">Payment History</h4>
-          <Button variant="outline" size="sm" className="h-8 text-[10px] font-bold uppercase tracking-widest px-6 transition-all hover:bg-secondary/10">
-            <Download className="mr-2 size-3.5 text-primary" />
-            Export Data
-          </Button>
-        </div>
-        <DataTable
-          data={withdrawals}
-          columns={columns}
-          searchKey="id"
-          placeholder="Search by Payment ID..."
-        />
-      </div>
+      <Card className="border border-border/50 bg-card shadow-sm">
+        <CardContent className="p-0">
+          <div className="p-6 border-b border-border/50">
+            <div className="flex items-center justify-between">
+              <h4 className="text-sm font-bold text-foreground uppercase tracking-wider">Payment History</h4>
+              <Button variant="outline" size="sm" className="h-8 text-[10px] font-bold uppercase tracking-widest px-6 transition-all hover:bg-secondary/10 hover:border-primary/20">
+                <Download className="mr-2 size-3.5 text-primary" />
+                Export Data
+              </Button>
+            </div>
+          </div>
+          <div className="p-6">
+            <DataTable
+              data={withdrawals}
+              columns={columns}
+              searchKey="id"
+              placeholder="Search by Payment ID..."
+            />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
