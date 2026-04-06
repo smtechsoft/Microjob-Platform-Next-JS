@@ -37,11 +37,11 @@ export default function AdminSettingsPage() {
                   <CardContent className="space-y-4">
                      <div className="space-y-2">
                         <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-[#9499b7]">Platform Name</Label>
-                        <Input defaultValue="Microjob Platform" className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
+                        <Input defaultValue="TaskGo" className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
                      </div>
                      <div className="space-y-2">
                         <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-[#9499b7]">Contact Email</Label>
-                        <Input defaultValue="support@microjob.com" className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
+                        <Input defaultValue="support@taskgo.app" className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
                      </div>
                      <div className="space-y-2">
                         <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground dark:text-[#9499b7]">Currency Symbol</Label>

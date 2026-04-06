@@ -45,7 +45,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg text-muted-contrast leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium"
           >
-            The world's most transparent microjob platform. Whether you're a freelancer looking for tasks or an agency managing thousands, we provide the tools to scale your success.
+            The world's most transparent task management platform. Whether you're a freelancer looking for tasks or an agency managing thousands, TaskGo provides the tools to scale your success.
           </motion.p>
 
           <motion.div
@@ -95,7 +95,7 @@ export function Hero() {
           <div className="relative rounded-xl bg-zinc-100 dark:bg-card border border-border/40 overflow-hidden aspect-[4/3] ring-1 ring-black/5 dark:ring-white/5">
              <img 
                 src="/landing/hero-preview.png" 
-                alt="MicroJob Analytics Preview" 
+                alt="TaskGo Analytics Preview" 
                 className="w-full h-full object-cover opacity-95 hover:opacity-100 transition-opacity"
              />
              <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />

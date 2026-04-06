@@ -92,7 +92,9 @@ export function Sidebar({
               <Briefcase className="size-5" />
             </div>
             <div>
-              <h1 className="text-lg font-bold tracking-tight text-foreground leading-none">MicroJob</h1>
+              <span className="text-xl font-black tracking-tighter uppercase transition-colors">
+                <span className="text-primary">Task</span><span className="text-secondary font-black">Go</span>
+              </span>
               <p className="mt-1 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{role} Panel</p>
             </div>
           </div>

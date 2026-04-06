@@ -53,8 +53,8 @@ export function Navbar() {
           <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-none group-hover:scale-105 transition-transform">
             <Wallet className="size-5" />
           </div>
-          <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">
-            Micro<span className="text-primary! font-black">Jobs</span>
+          <span className="text-xl font-black tracking-tighter uppercase transition-colors">
+            <span className="text-primary!">Task</span><span className="text-secondary! font-black">Go</span>
           </span>
         </Link>
 
@@ -123,8 +123,8 @@ export function Navbar() {
                   <div className="size-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground">
                     <Wallet className="size-4" />
                   </div>
-                  <span className="text-lg font-black tracking-tighter text-high-contrast uppercase">
-                    Micro<span className="text-primary! font-black">Jobs</span>
+                  <span className="text-lg font-black tracking-tighter uppercase">
+                    <span className="text-primary!">Task</span><span className="text-secondary! font-black">Go</span>
                   </span>
                 </Link>
                 <button onClick={() => setIsOpen(false)} className="p-1 rounded-md hover:bg-muted transition-colors">

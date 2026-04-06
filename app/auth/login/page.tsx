@@ -44,7 +44,7 @@ export default function LoginPage() {
           </div>
           <CardTitle className="text-3xl font-black tracking-tighter text-center">Welcome Back</CardTitle>
           <CardDescription className="text-center text-[10px] font-bold uppercase tracking-widest text-muted-foreground italic">
-            Secure login to your MicroJobs dashboard.
+            Secure login to your TaskGo dashboard.
           </CardDescription>
         </CardHeader>
 
@@ -124,7 +124,7 @@ export default function LoginPage() {
         <CardFooter className="flex flex-col space-y-4 pt-2 pb-10">
            <div className="text-center">
               <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                 New to MicroJobs?{" "}
+                 New to TaskGo?{" "}
                  <Link href="/auth/register" className="text-primary hover:underline ml-1">Create Account</Link>
               </p>
            </div>

@@ -27,7 +27,7 @@ const freelancerFeatures = [
   {
     id: 2,
     title: "Verified Tasks",
-    description: "Every microjob is pre-vetted by our quality control engine to ensure fair pay.",
+    description: "Every task is pre-vetted by our quality control engine to ensure fair pay.",
     icon: CheckCircle2,
     color: "text-secondary bg-secondary/10",
   },
@@ -78,7 +78,7 @@ export function Features() {
               Work Anywhere. <br /><span className="text-secondary! italic">Earn Instantly.</span>
             </h2>
             <p className="text-base text-muted-contrast font-medium max-w-lg leading-relaxed">
-              We've built the ultimate ecosystem for freelancers to find high-paying microjobs with guaranteed same-day payouts.
+              We've built the ultimate ecosystem for freelancers to find high-paying tasks on TaskGo with guaranteed same-day payouts.
             </p>
             <div className="grid gap-6 pt-6">
                {freelancerFeatures.map((f, i) => (

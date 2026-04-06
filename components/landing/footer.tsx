@@ -46,8 +46,8 @@ export function Footer() {
             <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-none group-hover:scale-105 transition-transform">
               <Wallet className="size-5" />
             </div>
-            <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">
-              Micro<span className="text-primary! font-black">Jobs</span>
+            <span className="text-xl font-black tracking-tighter uppercase transition-colors">
+              <span className="text-primary!">Task</span><span className="text-secondary! font-black">Go</span>
             </span>
           </Link>
           <p className="text-xs text-muted-contrast leading-relaxed italic max-w-xs font-medium">
@@ -78,7 +78,7 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 pt-12 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-[10px] font-black uppercase tracking-widest text-muted-contrast">
-           &copy; 2026 MicroJobs Portal. All Rights Reserved.
+           &copy; 2026 TaskGo Portal. All Rights Reserved.
         </p>
         <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-high-contrast italic">
            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />

@@ -61,7 +61,7 @@ export default function FreelancerProfilePage() {
                <div className="space-y-2">
                   <Label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Bio / Experience Summary</Label>
                   <Textarea 
-                     defaultValue="Professional freelancer with 5+ years of experience in digital arts and translation. Specialized in quick-turnaround microjobs." 
+                     defaultValue="Professional freelancer with 5+ years of experience in digital arts and translation. Specialized in quick-turnaround TaskGo tasks." 
                      className="rounded-lg border-border/50 bg-background font-medium min-h-[120px] resize-none" 
                   />
                </div>

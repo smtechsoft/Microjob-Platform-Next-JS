@@ -43,7 +43,7 @@ export default function RegisterPage() {
               </div>
               <CardTitle className="text-3xl font-black tracking-tighter">Get Started Today</CardTitle>
               <CardDescription className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground italic">
-                Choose your role to start your journey on MicroJobs.
+                Choose your role to start your journey on TaskGo.
               </CardDescription>
            </div>
         </CardHeader>
@@ -127,7 +127,7 @@ export default function RegisterPage() {
         <CardFooter className="flex flex-col space-y-4 pt-4 pb-12 bg-muted/5 border-t border-border/30">
            <div className="text-center pt-2">
               <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-                 Already a user on MicroJobs?{" "}
+                 Already a user on TaskGo?{" "}
                  <Link href="/auth/login" className="text-primary hover:underline ml-1 font-black">Login Account</Link>
               </p>
            </div>

@@ -22,8 +22,8 @@ export default function AuthLayout({
           <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
             <Wallet className="size-5" />
           </div>
-          <span className="text-xl font-black tracking-tighter text-foreground uppercase">
-            Micro<span className="text-primary font-black">Jobs</span>
+          <span className="text-xl font-black tracking-tighter uppercase transition-colors">
+            <span className="text-primary">Task</span><span className="text-secondary font-black">Go</span>
           </span>
         </Link>
       </header>
@@ -36,7 +36,7 @@ export default function AuthLayout({
       {/* Footer */}
       <footer className="p-8 text-center relative z-20">
          <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60">
-            &copy; 2026 MicroJobs Portal. Standard Security Protocol Active.
+            &copy; 2026 TaskGo Portal. Standard Security Protocol Active.
          </p>
       </footer>
     </div>

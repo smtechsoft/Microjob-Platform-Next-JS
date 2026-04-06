@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Microjob Platform",
-  description: "A premium platform for microjobs",
+  title: "TaskGo",
+  description: "A premium platform for task management and TaskGo tasks",
 };
 
 export default function RootLayout({

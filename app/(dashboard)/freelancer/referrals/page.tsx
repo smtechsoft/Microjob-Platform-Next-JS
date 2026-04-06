@@ -67,7 +67,7 @@ const referrals = [
 ]
 
 export default function FreelancerReferralsPage() {
-  const referralLink = "https://microjob.com/ref/john_doe_99"
+  const referralLink = "https://taskgo.app/ref/john_doe_99"
 
   const copyLink = () => {
     navigator.clipboard.writeText(referralLink)

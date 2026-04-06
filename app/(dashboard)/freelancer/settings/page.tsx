@@ -71,7 +71,7 @@ export default function FreelancerSettingsPage() {
                 </div>
                 <div className="space-y-2">
                   <Label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">Professional Bio</Label>
-                  <Input defaultValue="Experienced freelancer specializing in micro-tasks." className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
+                  <Input defaultValue="Experienced freelancer specializing in TaskGo tasks." className="rounded-lg border-border/50 bg-background/50 font-bold h-11" />
                 </div>
                 <Button className="w-full sm:w-auto h-10 px-8 rounded-lg bg-primary text-primary-foreground font-bold uppercase tracking-wider text-xs">
                   Update Profile
@@ -151,7 +151,7 @@ export default function FreelancerSettingsPage() {
               <CardContent className="space-y-4">
                 {[
                   { title: "Task Status Alerts", description: "Get notified when your task is approved or rejected." },
-                  { title: "New Job Notifications", description: "Alert me when new microjobs are posted." },
+                  { title: "New Job Notifications", description: "Alert me when new TaskGo tasks are posted." },
                   { title: "Payout Updates", description: "Get notified when your withdrawal is processed." },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between py-2 border-b border-border/30 last:border-0 pb-4 last:pb-0">
