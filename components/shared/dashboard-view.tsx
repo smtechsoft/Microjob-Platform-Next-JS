@@ -81,8 +81,8 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
         </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end">
+      {/* Stats Grid - Responsive 1, 2, 4 columns */}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {currentStats.map((stat, i) => (
           (role === "freelancer" && stat.title === "Current Balance") ? (
              <motion.div
@@ -90,7 +90,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="lg:col-span-1 h-full flex flex-col items-stretch"
+                className="h-[220px]"
               >
                 <WalletCard 
                   balance="420.50" 
@@ -105,11 +105,12 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="h-[220px]"
             >
-              <Card className="border border-border/50 bg-card transition-colors hover:border-primary/20 h-full flex flex-col justify-center">
-                <div className="p-5">
+              <Card className="border border-border/50 bg-card transition-all duration-300 hover:border-primary/20 h-full flex flex-col justify-center">
+                <div className="p-6">
                   <div className="flex items-center justify-between">
-                    <div className={stat.color + " rounded-lg p-2"}>
+                    <div className={stat.color + " rounded-lg p-2.5"}>
                       <stat.icon className="size-5" />
                     </div>
                     {stat.trend === "up" ? (
@@ -128,10 +129,10 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                       </div>
                     )}
                   </div>
-                  <div className="mt-4">
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">{stat.title}</p>
-                    <h3 className="text-2xl font-bold text-foreground mt-2 tracking-tight">{stat.value}</h3>
-                    <p className="text-[10px] text-muted-foreground font-medium mt-1 flex items-center italic">
+                  <div className="mt-6">
+                    <p className="text-[11px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-2">{stat.title}</p>
+                    <h3 className="text-2xl font-black text-foreground tracking-tight leading-none">{stat.value}</h3>
+                    <p className="text-[10px] text-muted-foreground font-medium mt-3 flex items-center italic leading-none whitespace-nowrap overflow-hidden text-ellipsis">
                       {stat.description}
                     </p>
                   </div>
@@ -143,59 +144,59 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        <Card className="col-span-1 lg:col-span-4 border border-border/50 bg-card">
+        <Card className="col-span-1 lg:col-span-4 border border-border/50 bg-card shadow-sm">
           <CardHeader>
-            <CardTitle className="text-lg font-bold text-foreground">
+            <CardTitle className="text-lg font-bold text-foreground lowercase first-letter:uppercase tracking-tight">
               {role === "freelancer" ? "Earnings History" : "Platform Revenue"}
             </CardTitle>
             <CardDescription className="text-xs text-muted-foreground">
               {role === "freelancer" ? "Your personal task income across all categories." : "Monthly revenue overview across all services."}
             </CardDescription>
           </CardHeader>
-          <CardContent className="h-[300px] flex items-center justify-center border-t border-border/30">
+          <CardContent className="h-[300px] flex items-center justify-center border-t border-border/30 bg-muted/5">
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="relative size-32">
                 <div className="absolute inset-0 rounded-full border-2 border-muted border-t-primary animate-[spin_3s_linear_infinite]" />
                 <div className="absolute inset-4 rounded-full border-2 border-muted border-r-secondary animate-[spin_2s_linear_infinite]" />
               </div>
               <div className="space-y-1">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Analytics Processing</p>
-                <p className="text-[10px] text-muted-foreground italic">Visualization coming soon</p>
+                <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Analytics Processing</p>
+                <p className="text-[9px] text-muted-foreground italic">Visualization coming soon...</p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="col-span-1 lg:col-span-3 border border-border/50 bg-card">
-          <CardHeader className="flex flex-row items-center justify-between">
+        <Card className="col-span-1 lg:col-span-3 border border-border/50 bg-card shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div>
-              <CardTitle className="text-lg font-bold text-foreground">Activity</CardTitle>
+              <CardTitle className="text-lg font-bold text-foreground">Recent Activity</CardTitle>
               <CardDescription className="text-xs text-muted-foreground">Latest interactions.</CardDescription>
             </div>
-            <Button variant="ghost" size="sm" className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:bg-secondary/10">All</Button>
+            <Button variant="ghost" size="sm" className="text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-primary/5">View All</Button>
           </CardHeader>
           <CardContent>
-            <div className="space-y-5">
+            <div className="space-y-6">
               {activities.map((activity, i) => (
-                <div key={i} className="flex gap-3 group items-start">
-                  <div className="relative mt-0.5">
-                    <Avatar className="size-8 border border-border/50">
+                <div key={i} className="flex gap-3 group items-center">
+                  <div className="relative">
+                    <Avatar className="size-9 border border-border/50 group-hover:border-primary/50 transition-colors">
                       <AvatarImage src={activity.avatar} />
-                      <AvatarFallback className="text-[10px] font-bold text-muted-foreground">{activity.user[0] || 'S'}</AvatarFallback>
+                      <AvatarFallback className="text-[10px] font-bold text-muted-foreground bg-muted/50">{activity.user[0] || 'S'}</AvatarFallback>
                     </Avatar>
                     <div className={cn(
                       "absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-card",
-                      activity.status === "success" ? "bg-secondary" :
+                      activity.status === "success" ? "bg-emerald-500" :
                         activity.status === "pending" ? "bg-amber-500" : "bg-destructive"
                     )} />
                   </div>
                   <div className="flex-1 space-y-0.5 min-w-0">
                     <div className="flex items-center justify-between">
                       <p className="text-xs font-bold text-foreground truncate">{activity.user}</p>
-                      <span className="text-[9px] font-bold text-muted-foreground uppercase whitespace-nowrap">{activity.time}</span>
+                      <span className="text-[9px] font-bold text-muted-foreground uppercase whitespace-nowrap ml-2">{activity.time}</span>
                     </div>
                     <p className="text-[11px] text-muted-foreground leading-tight truncate">
-                      {activity.action} <span className="font-bold text-foreground">{activity.target}</span>
+                      {activity.action} <span className="font-bold text-foreground/80">{activity.target}</span>
                     </p>
                   </div>
                 </div>
@@ -207,42 +208,43 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
 
       {(role === "admin" || role === "agent") && (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
-            <CardContent className="p-5 flex items-center gap-4">
-              <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+          {/* Quick Actions */}
+          <Card className="border border-border/50 bg-card hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
+              <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                 <Users className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">{role === "admin" ? "Agent Requests" : "Freelancer Requests"}</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">12 pending items</p>
+                <h4 className="text-sm font-bold text-foreground tracking-tight">{role === "admin" ? "Agent Requests" : "Freelancer Requests"}</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">12 pending items</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-primary" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
-            <CardContent className="p-5 flex items-center gap-4">
-              <div className="size-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+          <Card className="border border-border/50 bg-card hover:border-secondary/30 transition-all duration-300 cursor-pointer group">
+            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
+              <div className="size-11 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
                 <DollarSign className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">Payout Review</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">$1,250 in review</p>
+                <h4 className="text-sm font-bold text-foreground tracking-tight">Payout Review</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">$1,250 in review</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-secondary" />
               </div>
             </CardContent>
           </Card>
-          <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
-            <CardContent className="p-5 flex items-center gap-4">
-              <div className="size-10 rounded-lg bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-105 transition-transform">
+          <Card className="border border-border/40 bg-card hover:bg-destructive/5 hover:border-destructive/30 transition-all duration-300 cursor-pointer group sm:col-span-2 lg:col-span-1">
+            <CardContent className="p-5 flex items-center gap-4 h-[90px]">
+              <div className="size-11 rounded-xl bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-110 transition-transform">
                 <AlertCircle className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground">Dispute Center</h4>
-                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">3 active disputes</p>
+                <h4 className="text-sm font-bold text-foreground tracking-tight">Dispute Center</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">3 active disputes</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowUpRight className="size-4 text-destructive" />

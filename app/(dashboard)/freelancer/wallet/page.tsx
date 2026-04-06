@@ -79,18 +79,18 @@ export default function FreelancerWalletPage() {
     {
       key: "amount",
       label: "Amount",
-      render: (val: string) => <span className="font-bold text-foreground">{val}</span>
+      render: (val: string | number) => <span className="font-bold text-foreground">{val}</span>
     },
     {
       key: "status",
       label: "Status",
-      render: (val: string) => (
+      render: (val: string | number) => (
         <Badge className={
           val === "completed" ? "bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20" :
             val === "processing" ? "bg-amber-500/10 text-amber-600 hover:bg-amber-500/20" :
               "bg-destructive/10 text-destructive hover:bg-destructive/20"
         }>
-          {val}
+          {String(val)}
         </Badge>
       )
     },
@@ -106,8 +106,8 @@ export default function FreelancerWalletPage() {
         onAction={() => open("WITHDRAW_FUNDS")}
       />
 
-      {/* Wallet Stats */}
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-3 items-end">
+      {/* Wallet Stats - Responsive Grid & Same Height Cards */}
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {walletStats.map((stat, i) => (
           stat.title === "Available Balance" ? (
              <motion.div
@@ -115,7 +115,7 @@ export default function FreelancerWalletPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="lg:col-span-1 h-full flex flex-col items-stretch"
+                className="h-[220px]"
               >
                 <WalletCard 
                   balance="420.50" 
@@ -130,6 +130,7 @@ export default function FreelancerWalletPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05, duration: 0.4 }}
+              className="h-[220px]"
             >
               <Card className="border border-border/40 bg-card shadow-sm h-full flex flex-col justify-center">
                 <CardContent className="p-5">
