@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { 
-  TrendingUp, 
-  Users, 
-  Briefcase, 
-  DollarSign, 
-  ArrowUpRight, 
+import {
+  TrendingUp,
+  Users,
+  Briefcase,
+  DollarSign,
+  ArrowUpRight,
   ArrowDownRight,
   Clock,
   CheckCircle2,
@@ -19,6 +19,7 @@ import { Button } from "@/components/shared/ui/button"
 import { Badge } from "@/components/shared/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/shared/ui/avatar"
 import { cn } from "@/lib/utils"
+import { WalletCard } from "@/components/shared/wallet-card"
 
 const getStats = (role: string) => {
   if (role === "admin") {
@@ -40,7 +41,7 @@ const getStats = (role: string) => {
   return [
     { title: "Total Earnings", value: "$1,450.25", description: "Life-time", icon: DollarSign, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
     { title: "Tasks Completed", value: "156", description: "+12 this week", icon: CheckCircle2, trend: "up", color: "bg-secondary/10 text-secondary" },
-    { title: "Current Balance", value: "$420.50", description: "Ready to withdraw", icon: Clock, trend: "neutral", color: "bg-emerald-500/10 text-emerald-600" },
+    { title: "Current Balance", value: "420.50", description: "Ready to withdraw", icon: Clock, trend: "neutral", color: "bg-emerald-500/10 text-emerald-600" },
     { title: "Success Rate", value: "99.1%", description: "Near perfect", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
   ]
 }
@@ -81,46 +82,63 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-end">
         {currentStats.map((stat, i) => (
-          <motion.div
-            key={stat.title}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05, duration: 0.4 }}
-          >
-            <Card className="border border-border/50 bg-card transition-colors hover:border-primary/20">
-              <div className="p-5">
-                <div className="flex items-center justify-between">
-                  <div className={stat.color + " rounded-lg p-2"}>
-                    <stat.icon className="size-5" />
-                  </div>
-                  {stat.trend === "up" ? (
-                    <div className="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                      <ArrowUpRight className="mr-0.5 size-3" />
-                      ↑
+          (role === "freelancer" && stat.title === "Current Balance") ? (
+             <motion.div
+                key={stat.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="lg:col-span-1 h-full flex flex-col items-stretch"
+              >
+                <WalletCard 
+                  balance="420.50" 
+                  pending="85.00" 
+                  withdrawable="335.50"
+                  className="h-full"
+                />
+              </motion.div>
+          ) : (
+            <motion.div
+              key={stat.title}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+            >
+              <Card className="border border-border/50 bg-card transition-colors hover:border-primary/20 h-full flex flex-col justify-center">
+                <div className="p-5">
+                  <div className="flex items-center justify-between">
+                    <div className={stat.color + " rounded-lg p-2"}>
+                      <stat.icon className="size-5" />
                     </div>
-                  ) : stat.trend === "down" ? (
-                    <div className="text-[10px] font-bold text-destructive flex items-center bg-destructive/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
-                      <ArrowDownRight className="mr-0.5 size-3" />
-                      ↓
-                    </div>
-                  ) : (
-                     <div className="text-[10px] font-bold text-muted-foreground flex items-center bg-muted/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                    {stat.trend === "up" ? (
+                      <div className="text-[10px] font-bold text-emerald-600 flex items-center bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                        <ArrowUpRight className="mr-0.5 size-3" />
+                        ↑
+                      </div>
+                    ) : stat.trend === "down" ? (
+                      <div className="text-[10px] font-bold text-destructive flex items-center bg-destructive/10 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+                        <ArrowDownRight className="mr-0.5 size-3" />
+                        ↓
+                      </div>
+                    ) : (
+                      <div className="text-[10px] font-bold text-muted-foreground flex items-center bg-muted/20 px-2 py-0.5 rounded-full uppercase tracking-tighter">
                         Active
-                     </div>
-                  )}
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-4">
+                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">{stat.title}</p>
+                    <h3 className="text-2xl font-bold text-foreground mt-2 tracking-tight">{stat.value}</h3>
+                    <p className="text-[10px] text-muted-foreground font-medium mt-1 flex items-center italic">
+                      {stat.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-4">
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none">{stat.title}</p>
-                  <h3 className="text-2xl font-bold text-foreground mt-2 tracking-tight">{stat.value}</h3>
-                  <p className="text-[10px] text-muted-foreground font-medium mt-1 flex items-center italic">
-                    {stat.description}
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
+              </Card>
+            </motion.div>
+          )
         ))}
       </div>
 
@@ -128,10 +146,10 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
         <Card className="col-span-1 lg:col-span-4 border border-border/50 bg-card">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-foreground">
-               {role === "freelancer" ? "Earnings History" : "Platform Revenue"}
+              {role === "freelancer" ? "Earnings History" : "Platform Revenue"}
             </CardTitle>
             <CardDescription className="text-xs text-muted-foreground">
-               {role === "freelancer" ? "Your personal task income across all categories." : "Monthly revenue overview across all services."}
+              {role === "freelancer" ? "Your personal task income across all categories." : "Monthly revenue overview across all services."}
             </CardDescription>
           </CardHeader>
           <CardContent className="h-[300px] flex items-center justify-center border-t border-border/30">
@@ -167,8 +185,8 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                     </Avatar>
                     <div className={cn(
                       "absolute -bottom-0.5 -right-0.5 size-3 rounded-full border-2 border-card",
-                      activity.status === "success" ? "bg-secondary" : 
-                      activity.status === "pending" ? "bg-amber-500" : "bg-destructive"
+                      activity.status === "success" ? "bg-secondary" :
+                        activity.status === "pending" ? "bg-amber-500" : "bg-destructive"
                     )} />
                   </div>
                   <div className="flex-1 space-y-0.5 min-w-0">
@@ -188,50 +206,50 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       {(role === "admin" || role === "agent") && (
-         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
-               <CardContent className="p-5 flex items-center gap-4">
-               <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
-                  <Users className="size-5" />
-               </div>
-               <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-foreground">{role === "admin" ? "Agent Requests" : "Freelancer Requests"}</h4>
-                  <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">12 pending items</p>
-               </div>
-               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowUpRight className="size-4 text-primary" />
-               </div>
-               </CardContent>
-            </Card>
-            <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
-               <CardContent className="p-5 flex items-center gap-4">
-               <div className="size-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
-                  <DollarSign className="size-5" />
-               </div>
-               <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-foreground">Payout Review</h4>
-                  <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">$1,250 in review</p>
-               </div>
-               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowUpRight className="size-4 text-secondary" />
-               </div>
-               </CardContent>
-            </Card>
-            <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
-               <CardContent className="p-5 flex items-center gap-4">
-               <div className="size-10 rounded-lg bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-105 transition-transform">
-                  <AlertCircle className="size-5" />
-               </div>
-               <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-foreground">Dispute Center</h4>
-                  <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">3 active disputes</p>
-               </div>
-               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ArrowUpRight className="size-4 text-destructive" />
-               </div>
-               </CardContent>
-            </Card>
-         </div>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
+            <CardContent className="p-5 flex items-center gap-4">
+              <div className="size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+                <Users className="size-5" />
+              </div>
+              <div className="space-y-0.5">
+                <h4 className="text-sm font-bold text-foreground">{role === "admin" ? "Agent Requests" : "Freelancer Requests"}</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">12 pending items</p>
+              </div>
+              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowUpRight className="size-4 text-primary" />
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="border border-border/50 bg-card hover:border-primary/20 hover:bg-muted/5 transition-all duration-300 cursor-pointer group">
+            <CardContent className="p-5 flex items-center gap-4">
+              <div className="size-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                <DollarSign className="size-5" />
+              </div>
+              <div className="space-y-0.5">
+                <h4 className="text-sm font-bold text-foreground">Payout Review</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">$1,250 in review</p>
+              </div>
+              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowUpRight className="size-4 text-secondary" />
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors cursor-pointer group">
+            <CardContent className="p-5 flex items-center gap-4">
+              <div className="size-10 rounded-lg bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-105 transition-transform">
+                <AlertCircle className="size-5" />
+              </div>
+              <div className="space-y-0.5">
+                <h4 className="text-sm font-bold text-foreground">Dispute Center</h4>
+                <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">3 active disputes</p>
+              </div>
+              <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowUpRight className="size-4 text-destructive" />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       )}
     </div>
   )

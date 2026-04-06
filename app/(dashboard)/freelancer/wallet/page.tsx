@@ -1,15 +1,10 @@
 "use client"
 
-import { 
-  Wallet, 
-  ArrowUpRight, 
-  ArrowDownRight, 
-  Download, 
-  Plus, 
-  TrendingUp, 
-  Clock, 
-  CheckCircle2, 
-  AlertCircle 
+import {
+  Wallet,
+  Download,
+  TrendingUp,
+  Clock
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { PageHeader } from "@/components/shared/page-header"
@@ -18,6 +13,7 @@ import { Button } from "@/components/shared/ui/button"
 import { Card, CardContent } from "@/components/shared/ui/card"
 import { Badge } from "@/components/shared/ui/badge"
 import { useModal } from "@/hooks/use-modal"
+import { WalletCard } from "@/components/shared/wallet-card"
 
 const walletStats = [
   {
@@ -29,7 +25,7 @@ const walletStats = [
   },
   {
     title: "Available Balance",
-    value: "$420.50",
+    value: "420.50",
     description: "Ready to withdraw",
     icon: Wallet,
     color: "bg-blue-500/10 text-blue-600",
@@ -80,19 +76,19 @@ export default function FreelancerWalletPage() {
   const columns = [
     { key: "id", label: "Payment ID" },
     { key: "method", label: "Gateway" },
-    { 
-      key: "amount", 
+    {
+      key: "amount",
       label: "Amount",
       render: (val: string) => <span className="font-bold text-foreground">{val}</span>
     },
-    { 
-      key: "status", 
+    {
+      key: "status",
       label: "Status",
       render: (val: string) => (
         <Badge className={
           val === "completed" ? "bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20" :
-          val === "processing" ? "bg-amber-500/10 text-amber-600 hover:bg-amber-500/20" :
-          "bg-destructive/10 text-destructive hover:bg-destructive/20"
+            val === "processing" ? "bg-amber-500/10 text-amber-600 hover:bg-amber-500/20" :
+              "bg-destructive/10 text-destructive hover:bg-destructive/20"
         }>
           {val}
         </Badge>
@@ -111,29 +107,46 @@ export default function FreelancerWalletPage() {
       />
 
       {/* Wallet Stats */}
-      <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-3 items-end">
         {walletStats.map((stat, i) => (
-          <motion.div
-            key={stat.title}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.05, duration: 0.4 }}
-          >
-            <Card className="border border-border/40 bg-card shadow-sm">
-              <CardContent className="p-5">
-                <div className="flex items-center gap-4">
-                  <div className={stat.color + " rounded-lg p-2.5"}>
-                    <stat.icon className="size-5" />
+          stat.title === "Available Balance" ? (
+             <motion.div
+                key={stat.title}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="lg:col-span-1 h-full flex flex-col items-stretch"
+              >
+                <WalletCard 
+                  balance="420.50" 
+                  pending="85.00" 
+                  withdrawable="335.50"
+                  className="h-full"
+                />
+              </motion.div>
+          ) : (
+            <motion.div
+              key={stat.title}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.05, duration: 0.4 }}
+            >
+              <Card className="border border-border/40 bg-card shadow-sm h-full flex flex-col justify-center">
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-4">
+                    <div className={stat.color + " rounded-lg p-2.5"}>
+                      <stat.icon className="size-5" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest leading-none mb-1.5">{stat.title}</p>
+                      <h3 className="text-xl font-bold text-foreground tracking-tight leading-none">{stat.value}</h3>
+                      <p className="text-[10px] text-muted-foreground font-medium mt-1.5 italic leading-none">{stat.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">{stat.title}</p>
-                    <h3 className="text-xl font-bold text-foreground mt-1 tracking-tight">{stat.value}</h3>
-                    <p className="text-[10px] text-muted-foreground font-medium mt-0.5">{stat.description}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )
         ))}
       </div>
 
@@ -145,10 +158,10 @@ export default function FreelancerWalletPage() {
             Export Data
           </Button>
         </div>
-        <DataTable 
-          data={withdrawals} 
+        <DataTable
+          data={withdrawals}
           columns={columns}
-          searchKey="id" 
+          searchKey="id"
           placeholder="Search by Payment ID..."
         />
       </div>
