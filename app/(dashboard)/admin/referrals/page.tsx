@@ -33,7 +33,7 @@ export default function AdminReferralsPage() {
                     <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">Paid to the referrer</p>
                   </div>
                   <div className="w-24">
-                    <Input type="number" defaultValue="2.00" className="text-right font-bold rounded-lg border-border/50" />
+                    <Input type="number" defaultValue="2.00" className="text-right rounded-lg" />
                   </div>
                </div>
                <div className="flex items-center justify-between">
@@ -42,13 +42,13 @@ export default function AdminReferralsPage() {
                     <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-tight">Paid to the new user</p>
                   </div>
                   <div className="w-24">
-                    <Input type="number" defaultValue="0.50" className="text-right font-bold rounded-lg border-border/50" />
+                    <Input type="number" defaultValue="0.50" className="text-right rounded-lg" />
                   </div>
                </div>
              </div>
              
              <div className="pt-4 border-t border-border/30">
-                <Button className="w-full rounded-lg bg-primary text-primary-foreground shadow-sm">Update Rewards</Button>
+                <Button className="w-full rounded-lg bg-primary text-primary-foreground shadow-none">Update Rewards</Button>
              </div>
           </CardContent>
         </Card>
@@ -71,14 +71,14 @@ export default function AdminReferralsPage() {
                   <div key={tier.level} className="flex items-center justify-between">
                     <Label className="text-sm font-bold">{tier.level}</Label>
                     <div className="flex items-center gap-2">
-                       <Input type="number" defaultValue={tier.percent} className="w-20 text-right font-bold rounded-lg border-border/50" />
+                       <Input type="number" defaultValue={tier.percent} className="w-20 text-right font-bold rounded-lg" />
                        <span className="text-xs font-bold text-muted-foreground">%</span>
                     </div>
                   </div>
                 ))}
              </div>
              <div className="pt-4 border-t border-border/30">
-                <Button variant="outline" className="w-full rounded-lg border-border/50 shadow-sm">Save Tiers</Button>
+                <Button variant="outline" className="w-full rounded-lg shadow-none">Save Tiers</Button>
              </div>
           </CardContent>
         </Card>

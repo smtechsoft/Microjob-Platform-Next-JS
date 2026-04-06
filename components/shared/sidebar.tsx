@@ -88,7 +88,7 @@ export function Sidebar({
       )}>
         <div className="flex h-full flex-col px-4 py-6">
           <div className="mb-10 flex items-center px-2">
-            <div className="mr-3 flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+            <div className="mr-3 flex size-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-none">
               <Briefcase className="size-5" />
             </div>
             <div>

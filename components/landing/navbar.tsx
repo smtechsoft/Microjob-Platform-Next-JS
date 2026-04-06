@@ -33,14 +33,14 @@ export function Navbar() {
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b",
         scrolled 
-          ? "bg-background/80 backdrop-blur-md border-border/40 py-3 shadow-sm" 
+          ? "bg-background/80 backdrop-blur-md border-border/40 py-3 shadow-none" 
           : "bg-transparent border-transparent py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
+          <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-none group-hover:scale-105 transition-transform">
             <Wallet className="size-5" />
           </div>
           <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">
@@ -67,7 +67,7 @@ export function Navbar() {
           <Button variant="ghost" className="text-[10px] font-bold uppercase tracking-widest px-6" asChild>
             <Link href="/auth/login">Login</Link>
           </Button>
-          <Button className="bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-6 rounded-lg shadow-lg shadow-primary/20" asChild>
+          <Button className="bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-6 rounded-lg shadow-none" asChild>
             <Link href="/auth/register">
               Get Started
               <ArrowRight className="ml-2 size-3.5" />
@@ -108,7 +108,7 @@ export function Navbar() {
             <Button variant="outline" className="w-full text-[10px] font-bold uppercase tracking-widest py-6" asChild>
               <Link href="/auth/login">Login</Link>
             </Button>
-            <Button className="w-full text-[10px] font-bold uppercase tracking-widest py-6 rounded-xl" asChild>
+            <Button className="w-full text-[10px] font-bold uppercase tracking-widest py-6 rounded-xl shadow-none" asChild>
               <Link href="/auth/register">Get Started</Link>
             </Button>
           </div>

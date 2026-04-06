@@ -25,7 +25,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-             <Badge className="bg-primary/10 text-primary border-none px-4 py-1 rounded-full uppercase text-[10px] font-black tracking-widest shadow-sm">
+             <Badge className="bg-primary/10 text-primary border-none px-4 py-1 rounded-full uppercase text-[10px] font-black tracking-widest shadow-none">
                 Now Live: Payouts 2.0
              </Badge>
           </motion.div>
@@ -54,13 +54,13 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <Button size="lg" className="h-14 px-10 rounded-2xl bg-secondary text-secondary-foreground font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-secondary/30 group w-full sm:w-auto" asChild>
+            <Button size="lg" className="h-14 px-10 rounded-2xl bg-secondary text-secondary-foreground font-black uppercase tracking-widest text-[11px] shadow-none group w-full sm:w-auto" asChild>
               <Link href="/auth/register">
                 Start Earning Now
                 <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl border-primary shadow-sm text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 w-full sm:w-auto" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl border-[#006D44]/20 shadow-none text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 w-full sm:w-auto" asChild>
                <Link href="/#agencies">Manage Agency</Link>
             </Button>
           </motion.div>

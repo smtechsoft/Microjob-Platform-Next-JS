@@ -78,7 +78,7 @@ export function TaskModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={close}>
-      <DialogContent className="sm:max-w-[500px] bg-card border-border/50 shadow-2xl">
+      <DialogContent className="sm:max-w-[500px] bg-card border-border/50 shadow-none">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold">
             {isEdit ? "Edit Task" : "Create Task"}
@@ -94,7 +94,7 @@ export function TaskModal() {
             <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Task Title</Label>
             <Input
               placeholder="e.g. Subscribe to Youtube Channel"
-              className="rounded-lg border-border"
+              className="rounded-lg"
               {...form.register("title")}
             />
           </div>
@@ -106,7 +106,7 @@ export function TaskModal() {
                    type="number"
                    step="0.01"
                    placeholder="0.25"
-                   className="rounded-lg border-border"
+                   className="rounded-lg"
                    {...form.register("reward")}
                  />
              </div>
@@ -116,7 +116,7 @@ export function TaskModal() {
                    onValueChange={(value) => form.setValue("category", value)} 
                    value={form.watch("category")}
                  >
-                   <SelectTrigger className="rounded-lg border-border">
+                   <SelectTrigger className="rounded-lg">
                      <SelectValue placeholder="Category" />
                    </SelectTrigger>
                   <SelectContent className="bg-popover border-border/50">
@@ -134,7 +134,7 @@ export function TaskModal() {
                onValueChange={(value) => form.setValue("status", value)} 
                value={form.watch("status")}
              >
-               <SelectTrigger className="rounded-lg border-border">
+               <SelectTrigger className="rounded-lg">
                  <SelectValue placeholder="Select status" />
                </SelectTrigger>
                <SelectContent>
@@ -150,7 +150,7 @@ export function TaskModal() {
             <Button type="button" variant="ghost" onClick={close} className="rounded-lg font-bold uppercase text-[10px] tracking-widest px-8">
               Discard
             </Button>
-            <Button type="submit" className="rounded-lg bg-primary text-primary-foreground shadow-sm px-8 font-bold uppercase text-[10px] tracking-widest h-11">
+            <Button type="submit" className="rounded-lg bg-primary text-primary-foreground shadow-none px-8 font-bold uppercase text-[10px] tracking-widest h-11">
               {isEdit ? "Update Job" : "Publish Task"}
             </Button>
           </DialogFooter>

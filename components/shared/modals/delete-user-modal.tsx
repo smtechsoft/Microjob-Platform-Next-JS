@@ -42,7 +42,7 @@ export function DeleteUserModal() {
           <AlertDialogCancel className="rounded-lg border-border/50">Cancel</AlertDialogCancel>
           <AlertDialogAction
             onClick={onConfirm}
-            className="bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-lg shadow-sm"
+            className="bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-lg shadow-none"
           >
             Confirm Delete
           </AlertDialogAction>

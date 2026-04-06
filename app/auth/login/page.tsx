@@ -26,7 +26,7 @@ export default function LoginPage() {
       transition={{ duration: 0.3 }}
       className="w-full max-w-md"
     >
-      <Card className="border border-border/50 bg-card rounded-2xl relative overflow-hidden shadow-none">
+      <Card className="rounded-2xl relative overflow-hidden">
         {/* Top Accent Line */}
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
         
@@ -51,7 +51,7 @@ export default function LoginPage() {
                  <Input 
                    type="email" 
                    placeholder="name@example.com" 
-                   className="pl-11 rounded-xl h-12 border-border/50 bg-background font-bold focus:ring-primary/20"
+                   className="pl-11 rounded-xl h-12 bg-background font-bold focus:ring-primary/20"
                  />
               </div>
             </div>
@@ -65,13 +65,13 @@ export default function LoginPage() {
                  <Input 
                    type="password" 
                    placeholder="••••••••" 
-                   className="pl-11 rounded-xl h-12 border-border/50 bg-background font-bold focus:ring-primary/20"
+                   className="pl-11 rounded-xl h-12 bg-background font-bold focus:ring-primary/20"
                  />
               </div>
             </div>
           </div>
 
-          <Button className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[11px] shadow-lg shadow-primary/20 group">
+          <Button className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[11px] shadow-none group">
              Sign In Account
              <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
           </Button>

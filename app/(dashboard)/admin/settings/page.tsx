@@ -114,7 +114,7 @@ export default function AdminSettingsPage() {
       </Tabs>
 
       <div className="flex justify-end pt-4 border-t border-border/30">
-        <Button className="rounded-lg bg-white text-black hover:bg-gray-200 shadow-sm px-10 h-11 font-bold uppercase tracking-wider text-xs">Save All Changes</Button>
+        <Button className="rounded-lg bg-white text-black hover:bg-gray-200 shadow-none px-10 h-11 font-bold uppercase tracking-wider text-xs">Save All Changes</Button>
       </div>
     </div>
   )

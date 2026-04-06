@@ -25,7 +25,7 @@ export function PageHeader({
       {actionLabel && (
         <Button 
           onClick={onAction}
-          className="rounded-lg bg-primary text-primary-foreground shadow-sm text-xs font-bold uppercase tracking-wider h-10 px-6 sm:self-center self-start mt-4 sm:mt-0"
+          className="rounded-lg bg-primary text-primary-foreground shadow-none text-xs font-bold uppercase tracking-wider h-10 px-6 sm:self-center self-start mt-4 sm:mt-0"
         >
           <Plus className="mr-2 h-4 w-4" />
           {actionLabel}

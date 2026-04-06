@@ -104,7 +104,7 @@ export function UserModal() {
             <Input
               id="name"
               placeholder="John Doe"
-              className="rounded-lg border-border focus-visible:ring-primary/20"
+              className="rounded-lg focus-visible:ring-primary/20"
               {...form.register("name")}
             />
             {form.formState.errors.name && (
@@ -117,7 +117,7 @@ export function UserModal() {
               id="email"
               type="email"
               placeholder="john@example.com"
-              className="rounded-lg border-border focus-visible:ring-primary/20"
+              className="rounded-lg focus-visible:ring-primary/20"
               {...form.register("email")}
             />
             {form.formState.errors.email && (
@@ -132,7 +132,7 @@ export function UserModal() {
                 defaultValue={form.getValues("role")}
                 value={form.watch("role")}
               >
-                <SelectTrigger className="rounded-lg border-border">
+                <SelectTrigger className="rounded-lg">
                   <SelectValue placeholder="Select role" />
                 </SelectTrigger>
                 <SelectContent>
@@ -144,7 +144,7 @@ export function UserModal() {
             </div>
             <div className="flex flex-col space-y-2">
               <Label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Status</Label>
-              <div className="flex h-11 items-center space-x-2 rounded-lg border border-border px-3">
+              <div className="flex h-11 items-center space-x-2 rounded-lg border border-[#006D44]/15 px-3">
                 <Switch
                   checked={form.watch("status")}
                   onCheckedChange={(checked) => form.setValue("status", checked)}
@@ -156,10 +156,10 @@ export function UserModal() {
             </div>
           </div>
           <DialogFooter className="pt-4 gap-2 sm:gap-0">
-            <Button type="button" variant="outline" onClick={handleClose} className="rounded-lg border-border/50 font-bold uppercase text-[10px] tracking-widest px-6 h-11">
+            <Button type="button" variant="outline" onClick={handleClose} className="rounded-lg font-bold uppercase text-[10px] tracking-widest px-6 h-11">
               Cancel
             </Button>
-            <Button type="submit" className="rounded-lg bg-primary text-primary-foreground shadow-sm font-bold uppercase text-[10px] tracking-widest px-6 h-11">
+            <Button type="submit" className="rounded-lg bg-primary text-primary-foreground shadow-none font-bold uppercase text-[10px] tracking-widest px-6 h-11">
               {isEdit ? "Save Changes" : "Create User"}
             </Button>
           </DialogFooter>

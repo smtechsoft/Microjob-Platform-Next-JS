@@ -35,7 +35,7 @@ export default function AgentSettingsPage() {
          <div className="w-full">
             {/* Profile Tab */}
             <TabsContent value="profile" className="space-y-6 animate-in slide-in-from-bottom-2 duration-300">
-               <Card className="border border-border/40 bg-card shadow-sm">
+               <Card>
                   <CardHeader>
                      <div className="flex items-center gap-2 text-primary mb-1">
                         <User className="h-5 w-5" />
@@ -67,7 +67,7 @@ export default function AgentSettingsPage() {
 
             {/* Email Tab */}
             <TabsContent value="email" className="space-y-6 animate-in slide-in-from-bottom-2 duration-300">
-               <Card className="border border-border/40 bg-card shadow-sm">
+               <Card>
                   <CardHeader>
                      <div className="flex items-center gap-2 text-primary mb-1">
                         <Mail className="h-5 w-5" />
@@ -93,7 +93,7 @@ export default function AgentSettingsPage() {
 
             {/* Password Tab */}
             <TabsContent value="password" className="space-y-6 animate-in slide-in-from-bottom-2 duration-300">
-               <Card className="border border-border/40 bg-card shadow-sm">
+               <Card>
                   <CardHeader>
                      <div className="flex items-center gap-2 text-primary mb-1">
                         <Lock className="h-5 w-5" />
