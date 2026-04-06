@@ -9,7 +9,8 @@ import {
   ArrowRight, 
   ShieldCheck, 
   Terminal, 
-  Globe 
+  Globe,
+  Users
 } from "lucide-react"
 
 import { Button } from "@/components/shared/ui/button"
@@ -17,8 +18,13 @@ import { Input } from "@/components/shared/ui/input"
 import { Label } from "@/components/shared/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/shared/ui/card"
 import { Badge } from "@/components/shared/ui/badge"
+import { RadioGroup } from "@/components/shared/ui/radio-group"
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
+import { cn } from "@/lib/utils"
 
 export default function LoginPage() {
+  const [role, setRole] = React.useState("user")
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -43,6 +49,44 @@ export default function LoginPage() {
         </CardHeader>
 
         <CardContent className="space-y-6">
+          {/* Identity Selection - Role Radio Group */}
+          <div className="space-y-3">
+             <Label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground ml-1">Select Identity</Label>
+             <RadioGroup 
+                defaultValue="user" 
+                onValueChange={setRole}
+                className="grid grid-cols-3 gap-3"
+             >
+                {[
+                   { id: "user", label: "User", icon: Users },
+                   { id: "admin", label: "Admin", icon: ShieldCheck },
+                   { id: "agent", label: "Agent", icon: Globe }
+                ].map((item) => (
+                   <div key={item.id} className="relative">
+                      <RadioGroupPrimitive.Item
+                         value={item.id}
+                         id={item.id}
+                         className={cn(
+                            "peer sr-only",
+                            "focus:outline-none"
+                         )}
+                      />
+                      <Label
+                         htmlFor={item.id}
+                         className={cn(
+                            "flex flex-col items-center justify-center gap-2 p-3 rounded-xl border border-border bg-card cursor-pointer transition-all hover:bg-muted/50",
+                            "peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:ring-2 peer-data-[state=checked]:ring-primary/20",
+                            "text-[10px] font-black uppercase tracking-widest text-muted-foreground peer-data-[state=checked]:text-primary"
+                         )}
+                      >
+                         <item.icon className="size-5" strokeWidth={2.5} />
+                         {item.label}
+                      </Label>
+                   </div>
+                ))}
+             </RadioGroup>
+          </div>
+
           <div className="space-y-4">
             <div className="space-y-2">
               <Label className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground ml-1">Email Address</Label>
@@ -72,7 +116,7 @@ export default function LoginPage() {
           </div>
 
           <Button className="w-full h-12 rounded-xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[11px] shadow-none group">
-             Sign In Account
+             Sign In as {role.charAt(0).toUpperCase() + role.slice(1)}
              <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </CardContent>
