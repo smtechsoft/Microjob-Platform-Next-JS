@@ -12,10 +12,10 @@ export function Hero() {
     <section id="home" className="relative pt-32 pb-20 overflow-hidden lg:pt-48 lg:pb-32">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 blur-3xl opacity-20 pointer-events-none">
-        <div className="size-[500px] rounded-full bg-primary" />
+        <div className="size-[500px] rounded-full bg-secondary" />
       </div>
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 blur-3xl opacity-10 pointer-events-none">
-        <div className="size-[400px] rounded-full bg-secondary" />
+        <div className="size-[400px] rounded-full bg-primary" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center lg:text-left flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
@@ -54,13 +54,13 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <Button size="lg" className="h-14 px-10 rounded-2xl bg-primary text-primary-foreground font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-primary/30 group w-full sm:w-auto" asChild>
+            <Button size="lg" className="h-14 px-10 rounded-2xl bg-secondary text-secondary-foreground font-black uppercase tracking-widest text-[11px] shadow-2xl shadow-secondary/30 group w-full sm:w-auto" asChild>
               <Link href="/auth/register">
                 Start Earning Now
                 <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl border-border shadow-sm text-[11px] font-black uppercase tracking-widest text-foreground hover:bg-muted/10 w-full sm:w-auto" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl border-primary shadow-sm text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 w-full sm:w-auto" asChild>
                <Link href="/#agencies">Manage Agency</Link>
             </Button>
           </motion.div>

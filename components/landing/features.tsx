@@ -18,18 +18,21 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 
 const freelancerFeatures = [
   {
+    id: 1,
     title: "Instant Withdrawals",
     description: "Get your earnings within minutes after task approval via your choice of gateway.",
     icon: Zap,
     color: "text-amber-500 bg-amber-500/10",
   },
   {
+    id: 2,
     title: "Verified Tasks",
     description: "Every microjob is pre-vetted by our quality control engine to ensure fair pay.",
     icon: CheckCircle2,
-    color: "text-emerald-500 bg-emerald-500/10",
+    color: "text-secondary bg-secondary/10",
   },
   {
+    id: 3,
     title: "Referral Bonuses",
     description: "Earn lifetime commissions by inviting your network to the platform.",
     icon: Globe,
@@ -39,18 +42,21 @@ const freelancerFeatures = [
 
 const agencyFeatures = [
   {
+    id: 1,
     title: "Bulk Management",
     description: "Create and manage thousands of tasks with our advanced agency dashboard.",
     icon: Layers,
     color: "text-purple-500 bg-purple-500/10",
   },
   {
+    id: 2,
     title: "Reporting Suite",
     description: "In-depth analytics on worker performance, task accuracy, and budget usage.",
     icon: BarChart4,
-    color: "text-emerald-500 bg-emerald-500/10",
+    color: "text-primary bg-primary/10",
   },
   {
+    id: 3,
     title: "Global Workforce",
     description: "Access over 50,000+ verified freelancers ready to work on your projects.",
     icon: Users,
@@ -65,11 +71,11 @@ export function Features() {
       <div id="explore" className="max-w-7xl mx-auto px-6 pt-12">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 space-y-6">
-            <Badge className="bg-emerald-500/10 text-emerald-600 border-none px-3 py-0.5 rounded-full uppercase text-[9px] font-black tracking-widest">
+            <Badge className="bg-secondary/10 text-secondary border-none px-3 py-0.5 rounded-full uppercase text-[9px] font-black tracking-widest">
               Freelancer Power
             </Badge>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-high-contrast leading-[0.9]">
-              Work Anywhere. <br /><span className="text-emerald-800! dark:text-primary! italic">Earn Instantly.</span>
+              Work Anywhere. <br /><span className="text-secondary! italic">Earn Instantly.</span>
             </h2>
             <p className="text-base text-muted-contrast font-medium max-w-lg leading-relaxed">
               We've built the ultimate ecosystem for freelancers to find high-paying microjobs with guaranteed same-day payouts.

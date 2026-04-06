@@ -24,24 +24,24 @@ const getStats = (role: string) => {
   if (role === "admin") {
     return [
       { title: "Platform Balance", value: "$124,450.00", description: "+12.5% monthly", icon: DollarSign, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
-      { title: "Total Tasks", value: "842", description: "42 active now", icon: Briefcase, trend: "up", color: "bg-blue-500/10 text-blue-600" },
-      { title: "Total Freelancers", value: "1,280", description: "+48 this week", icon: Users, trend: "up", color: "bg-purple-500/10 text-purple-600" },
-      { title: "Success Rate", value: "98.2%", description: "+0.4% avg", icon: TrendingUp, trend: "up", color: "bg-amber-500/10 text-amber-600" },
+      { title: "Total Tasks", value: "842", description: "42 active now", icon: Briefcase, trend: "up", color: "bg-secondary/10 text-secondary" },
+      { title: "Total Freelancers", value: "1,280", description: "+48 this week", icon: Users, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
+      { title: "Success Rate", value: "98.2%", description: "+0.4% avg", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
     ]
   }
   if (role === "agent") {
     return [
       { title: "Agency Commission", value: "$4,250.00", description: "This month", icon: DollarSign, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
-      { title: "Managed Freelancers", value: "124", description: "8 active", icon: Users, trend: "up", color: "bg-blue-500/10 text-blue-600" },
-      { title: "Pending Reviews", value: "15", description: "Tasks to approve", icon: Clock, trend: "down", color: "bg-amber-500/10 text-amber-600" },
-      { title: "Success Rate", value: "96.5%", description: "Team average", icon: TrendingUp, trend: "up", color: "bg-purple-500/10 text-purple-600" },
+      { title: "Managed Freelancers", value: "124", description: "8 active", icon: Users, trend: "up", color: "bg-secondary/10 text-secondary" },
+      { title: "Pending Reviews", value: "15", description: "Tasks to approve", icon: Clock, trend: "down", color: "bg-emerald-500/10 text-emerald-600" },
+      { title: "Success Rate", value: "96.5%", description: "Team average", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
     ]
   }
   return [
     { title: "Total Earnings", value: "$1,450.25", description: "Life-time", icon: DollarSign, trend: "up", color: "bg-emerald-500/10 text-emerald-600" },
-    { title: "Tasks Completed", value: "156", description: "+12 this week", icon: CheckCircle2, trend: "up", color: "bg-blue-500/10 text-blue-600" },
-    { title: "Current Balance", value: "$420.50", description: "Ready to withdraw", icon: Clock, trend: "neutral", color: "bg-purple-500/10 text-purple-600" },
-    { title: "Success Rate", value: "99.1%", description: "Near perfect", icon: TrendingUp, trend: "up", color: "bg-amber-500/10 text-amber-600" },
+    { title: "Tasks Completed", value: "156", description: "+12 this week", icon: CheckCircle2, trend: "up", color: "bg-secondary/10 text-secondary" },
+    { title: "Current Balance", value: "$420.50", description: "Ready to withdraw", icon: Clock, trend: "neutral", color: "bg-emerald-500/10 text-emerald-600" },
+    { title: "Success Rate", value: "99.1%", description: "Near perfect", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
   ]
 }
 
