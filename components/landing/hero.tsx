@@ -45,7 +45,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-base md:text-lg text-muted-contrast leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium"
           >
-            The world's most transparent task management platform. Whether you're a freelancer looking for tasks or an agency managing thousands, TaskGo provides the tools to scale your success.
+            The world's most transparent microjob platform. Whether you're a freelancer looking for tasks or an agency managing thousands, TaskGo provides the tools to scale your success.
           </motion.p>
 
           <motion.div

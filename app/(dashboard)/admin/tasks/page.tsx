@@ -78,7 +78,7 @@ export default function AdminTasksPage() {
   return (
     <div className="space-y-8">
       <PageHeader
-        title="Task Management"
+        title="Tasks"
         description="Oversee all micro-jobs, approve submissions, and monitor task quality."
         actionLabel="Create Task"
         onAction={() => open("CREATE_TASK")}

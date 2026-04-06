@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { ReduxProvider } from "@/store/provider";
 import { ModalProvider } from "@/components/shared/modal-provider";
+import { InspectProtector } from "@/components/shared/inspect-protector";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -17,8 +18,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TaskGo",
-  description: "A premium platform for task management and TaskGo tasks",
+  title: {
+    default: "TaskGo - Microjob Platform",
+    template: "%s | TaskGo",
+  },
+  description: "A premium microjob platform for TaskGo tasks",
 };
 
 export default function RootLayout({
@@ -41,8 +45,9 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
             <ModalProvider />
+            <InspectProtector enabled={true} />
+            {children}
           </ThemeProvider>
         </ReduxProvider>
       </body>
