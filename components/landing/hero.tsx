@@ -54,13 +54,13 @@ export function Hero() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
           >
-            <Button size="lg" className="h-14 px-10 rounded-2xl bg-secondary text-secondary-foreground font-black uppercase tracking-widest text-[11px] shadow-none group w-full sm:w-auto" asChild>
+            <Button size="lg" className="h-14 px-10 rounded-xl bg-secondary text-secondary-foreground font-black uppercase tracking-widest text-[11px] shadow-none group w-full sm:w-auto" asChild>
               <Link href="/auth/register">
                 Start Earning Now
                 <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="h-14 px-10 rounded-2xl border-[#006D44]/20 shadow-none text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 w-full sm:w-auto" asChild>
+            <Button variant="outline" size="lg" className="h-14 px-10 rounded-xl border-[#006D44]/20 shadow-none text-[11px] font-black uppercase tracking-widest text-primary hover:bg-primary/10 w-full sm:w-auto" asChild>
                <Link href="/#agencies">Manage Agency</Link>
             </Button>
           </motion.div>
@@ -92,7 +92,7 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="flex-1 w-full max-w-2xl relative"
         >
-          <div className="relative rounded-3xl bg-zinc-100 dark:bg-card border border-border/40 overflow-hidden aspect-[4/3] ring-1 ring-black/5 dark:ring-white/5">
+          <div className="relative rounded-xl bg-zinc-100 dark:bg-card border border-border/40 overflow-hidden aspect-[4/3] ring-1 ring-black/5 dark:ring-white/5">
              <img 
                 src="/landing/hero-preview.png" 
                 alt="MicroJob Analytics Preview" 
@@ -104,15 +104,15 @@ export function Hero() {
           <motion.div 
             animate={{ y: [0, -15, 0] }}
             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-            className="absolute -top-6 -right-6 p-4 rounded-2xl bg-card border border-border/40 z-20 backdrop-blur-md"
+            className="absolute -top-6 -right-6 p-4 rounded-xl bg-card border border-border/40 z-20 backdrop-blur-md"
           >
              <div className="flex items-center gap-3">
                 <div className="size-8 rounded-lg bg-emerald-500/10 text-emerald-600 flex items-center justify-center">
                    <Zap className="size-4" />
                 </div>
                 <div>
-                   <p className="text-[9px] font-black uppercase text-zinc-500 dark:text-muted-foreground leading-none italic">Live Analytics</p>
-                   <p className="text-xs font-black text-[#0a0a0a] dark:text-white mt-1">+$1,420.50</p>
+                   <p className="text-[9px] font-black uppercase text-muted-contrast opacity-70 leading-none italic">Live Analytics</p>
+                   <p className="text-xs font-black text-high-contrast dark:text-white mt-1">+$1,420.50</p>
                 </div>
              </div>
           </motion.div>

@@ -43,7 +43,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid gap-16 lg:grid-cols-4 pb-16">
         <div className="space-y-6">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
+            <div className="size-9 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-none group-hover:scale-105 transition-transform">
               <Wallet className="size-5" />
             </div>
             <span className="text-xl font-black tracking-tighter text-high-contrast uppercase transition-colors">

@@ -73,7 +73,7 @@ export default function AgentReportsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05, duration: 0.4 }}
           >
-            <Card className="border border-border/50 bg-card shadow-none rounded-2xl transition-colors hover:border-primary/20">
+            <Card className="border border-border/50 bg-card shadow-none rounded-xl transition-colors hover:border-primary/20">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between">
                   <div className={cn(kpi.color, "rounded-lg p-2")}>
@@ -98,7 +98,7 @@ export default function AgentReportsPage() {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-        <Card className="border border-border/50 bg-card shadow-none rounded-2xl">
+        <Card className="border border-border/50 bg-card shadow-none rounded-xl">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="space-y-1">
               <CardTitle className="text-lg font-bold text-high-contrast">Monthly Freelancer Growth</CardTitle>
@@ -120,7 +120,7 @@ export default function AgentReportsPage() {
           </CardContent>
         </Card>
 
-        <Card className="border border-border/50 bg-card shadow-none rounded-2xl">
+        <Card className="border border-border/50 bg-card shadow-none rounded-xl">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="space-y-1">
               <CardTitle className="text-lg font-bold text-high-contrast">Performance Distribution</CardTitle>
@@ -137,7 +137,7 @@ export default function AgentReportsPage() {
         </Card>
       </div>
 
-      <div className="rounded-2xl border border-border/50 bg-muted/5 p-6 border-dashed flex flex-col items-center justify-center text-center space-y-4">
+      <div className="rounded-xl border border-border/50 bg-muted/5 p-6 border-dashed flex flex-col items-center justify-center text-center space-y-4">
         <FileText className="size-8 text-muted-foreground" />
         <div className="space-y-1">
           <h4 className="text-sm font-bold text-high-contrast uppercase tracking-widest leading-none">Custom Reports</h4>

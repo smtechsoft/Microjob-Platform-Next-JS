@@ -31,7 +31,7 @@ export default function RegisterPage() {
       transition={{ duration: 0.3 }}
       className="w-full max-w-xl py-12"
     >
-      <Card className="rounded-2xl relative overflow-hidden">
+      <Card className="rounded-xl relative overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary/50 via-primary to-primary/50" />
         
         <CardHeader className="space-y-2 pb-8 pt-10 px-8 text-center sm:text-left sm:flex-row sm:items-center sm:justify-between">
@@ -59,7 +59,7 @@ export default function RegisterPage() {
                   key={r.id}
                   onClick={() => setRole(r.id as any)}
                   className={cn(
-                    "flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all duration-300 text-center group",
+                    "flex flex-col items-center gap-2 p-4 rounded-xl border transition-all duration-300 text-center group",
                     role === r.id 
                       ? "bg-primary/5 border-primary ring-1 ring-primary/20 shadow-none" 
                       : "bg-background/50 border-[#006D44]/15 hover:border-primary/20 hover:bg-primary/5"

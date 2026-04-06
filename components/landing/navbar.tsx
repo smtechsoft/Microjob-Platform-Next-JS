@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ArrowRight, Wallet } from "lucide-react"
 
 import { Button } from "@/components/shared/ui/button"
@@ -27,6 +27,16 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Lock scroll when drawer is open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => { document.body.style.overflow = "unset" }
+  }, [isOpen])
 
   return (
     <nav
@@ -80,40 +90,73 @@ export function Navbar() {
           <ThemeToggle />
           <button
             className="p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setIsOpen(true)}
           >
-            {isOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+            <Menu className="size-6" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        className="md:hidden bg-background border-b border-border/40 overflow-hidden"
-      >
-        <div className="flex flex-col gap-4 p-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-xs font-bold uppercase tracking-widest text-muted-foreground"
+      {/* Mobile Sidebar (Drawer) */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[100] md:hidden"
+            />
+
+            {/* Sidebar Content */}
+            <motion.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-y-0 left-0 w-64 bg-background border-r border-border/40 z-[101] shadow-2xl p-6 flex flex-col gap-8 md:hidden"
             >
-              {link.label}
-            </a>
-          ))}
-          <div className="pt-4 flex flex-col gap-3">
-            <Button variant="outline" className="w-full text-[10px] font-bold uppercase tracking-widest py-6" asChild>
-              <Link href="/auth/login">Login</Link>
-            </Button>
-            <Button className="w-full text-[10px] font-bold uppercase tracking-widest py-6 rounded-xl shadow-none" asChild>
-              <Link href="/auth/register">Get Started</Link>
-            </Button>
-          </div>
-        </div>
-      </motion.div>
+              <div className="flex items-center justify-between">
+                <Link href="/" className="flex items-center gap-2 group" onClick={() => setIsOpen(false)}>
+                  <div className="size-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground">
+                    <Wallet className="size-4" />
+                  </div>
+                  <span className="text-lg font-black tracking-tighter text-high-contrast uppercase">
+                    Micro<span className="text-primary! font-black">Jobs</span>
+                  </span>
+                </Link>
+                <button onClick={() => setIsOpen(false)} className="p-1 rounded-md hover:bg-muted transition-colors">
+                  <X className="size-5" />
+                </button>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-xs font-black uppercase tracking-widest text-muted-contrast hover:text-primary! transition-colors py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="mt-auto flex flex-col gap-3">
+                <Button variant="outline" className="w-full text-[10px] font-bold uppercase tracking-widest py-6" onClick={() => setIsOpen(false)} asChild>
+                  <Link href="/auth/login">Login</Link>
+                </Button>
+                <Button className="w-full text-[10px] font-bold uppercase tracking-widest py-6 rounded-xl shadow-none" onClick={() => setIsOpen(false)} asChild>
+                  <Link href="/auth/register">Get Started</Link>
+                </Button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }

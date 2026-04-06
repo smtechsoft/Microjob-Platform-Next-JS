@@ -45,7 +45,7 @@ export function Stats() {
               className="group text-center space-y-3"
             >
               <div className="flex justify-center">
-                <div className="p-3 rounded-2xl bg-card border border-border/40 transition-transform group-hover:scale-110 group-hover:bg-primary/5">
+                <div className="p-3 rounded-xl bg-card border border-border/40 transition-transform group-hover:scale-110 group-hover:bg-primary/5">
                   <stat.icon className={`size-6 ${stat.color}`} />
                 </div>
               </div>

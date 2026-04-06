@@ -95,7 +95,7 @@ export function Navbar({
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 mt-2 w-80 rounded-2xl border border-border/50 bg-card p-2 shadow-none z-50 overflow-hidden"
+                  className="absolute right-0 mt-2 w-80 rounded-xl border border-border/50 bg-card p-2 shadow-none z-50 overflow-hidden"
                 >
                   <div className="flex items-center justify-between px-3 py-2 border-b border-border/40 mb-2">
                     <span className="text-[10px] font-black uppercase tracking-widest text-high-contrast">Notifications</span>

@@ -101,7 +101,7 @@ export function Features() {
             </div>
           </div>
           
-          <div className="flex-1 w-full rounded-3xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
+          <div className="flex-1 w-full rounded-xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
              <img 
                 src="/landing/hero-preview.png" 
                 alt="Freelancer Workspace Preview" 
@@ -146,7 +146,7 @@ export function Features() {
             </div>
           </div>
           
-          <div className="flex-1 w-full rounded-3xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
+          <div className="flex-1 w-full rounded-xl border border-border/40 aspect-video relative overflow-hidden ring-1 ring-white/10 dark:ring-white/5">
              <img 
                 src="/landing/agency-preview.png" 
                 alt="Agency Management Preview" 

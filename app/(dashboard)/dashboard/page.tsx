@@ -219,7 +219,7 @@ export default function DashboardPage() {
       <div className="grid gap-6 md:grid-cols-3">
          <Card className="border-none bg-gradient-to-br from-primary/10 to-primary/5 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
             <CardContent className="p-6 flex items-center gap-5">
-              <div className="size-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
+              <div className="size-14 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
                 <Users className="size-7" />
               </div>
               <div className="space-y-1">
@@ -233,7 +233,7 @@ export default function DashboardPage() {
          </Card>
          <Card className="border-none bg-gradient-to-br from-secondary/20 to-secondary/10 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
             <CardContent className="p-6 flex items-center gap-5">
-              <div className="size-14 rounded-2xl bg-secondary/30 flex items-center justify-center text-secondary-foreground group-hover:scale-110 transition-transform duration-500">
+              <div className="size-14 rounded-xl bg-secondary/30 flex items-center justify-center text-secondary-foreground group-hover:scale-110 transition-transform duration-500">
                 <DollarSign className="size-7" />
               </div>
               <div className="space-y-1">
@@ -247,7 +247,7 @@ export default function DashboardPage() {
          </Card>
          <Card className="border-none bg-gradient-to-br from-amber-500/10 to-amber-500/5 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer group">
             <CardContent className="p-6 flex items-center gap-5">
-              <div className="size-14 rounded-2xl bg-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-500">
+              <div className="size-14 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform duration-500">
                 <AlertCircle className="size-7" />
               </div>
               <div className="space-y-1">
