@@ -456,7 +456,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
                 <Users className="size-5" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-sm font-bold text-foreground tracking-tight">{role === "admin" ? "Agent Requests" : "Freelancer Requests"}</h4>
+                <h4 className="text-sm font-bold text-foreground tracking-tight">Freelancer Requests</h4>
                 <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest opacity-70">12 pending items</p>
               </div>
               <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
