@@ -17,7 +17,7 @@ export default function AdminReferralsPage() {
       />
       
       <div className="grid gap-6 md:grid-cols-2">
-        <Card className="border-border/40 bg-card shadow-sm">
+        <Card className="overflow-hidden">
           <CardHeader>
             <div className="flex items-center gap-2 text-primary mb-1">
               <Gift className="h-5 w-5" />
@@ -53,7 +53,7 @@ export default function AdminReferralsPage() {
           </CardContent>
         </Card>
 
-        <Card className="border-border/40 bg-card shadow-sm">
+        <Card className="overflow-hidden">
           <CardHeader>
              <div className="flex items-center gap-2 text-secondary mb-1">
               <Percent className="h-5 w-5" />
@@ -84,7 +84,7 @@ export default function AdminReferralsPage() {
         </Card>
       </div>
 
-      <Card className="border-border/40 bg-card shadow-sm">
+      <Card>
         <CardHeader>
            <div className="flex items-center gap-2 text-primary/80 mb-1">
             <Settings2 className="h-5 w-5" />

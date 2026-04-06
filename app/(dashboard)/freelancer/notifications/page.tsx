@@ -103,7 +103,7 @@ export default function FreelancerNotificationsPage() {
               transition={{ delay: i * 0.05 }}
             >
               <Card className={cn(
-                "border border-border/40 bg-card hover:bg-muted/10 transition-colors shadow-none cursor-pointer",
+                "cursor-pointer",
                 notification.status === "unread" && "border-primary/20 bg-primary/2 dark:bg-primary/5"
               )}>
                 <CardContent className="p-4 flex gap-4 items-start">

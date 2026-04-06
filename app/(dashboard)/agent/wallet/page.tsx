@@ -119,7 +119,7 @@ export default function AgentWalletPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05, duration: 0.4 }}
           >
-            <Card className="border border-border/40 bg-card shadow-sm">
+            <Card>
               <CardContent className="p-5">
                 <div className="flex items-center gap-4">
                   <div className={stat.color + " rounded-lg p-2.5"}>

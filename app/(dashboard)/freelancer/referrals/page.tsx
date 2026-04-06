@@ -84,7 +84,7 @@ export default function FreelancerReferralsPage() {
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
-         <Card className="lg:col-span-2 border border-border/40 bg-card overflow-hidden">
+         <Card className="lg:col-span-2 overflow-hidden">
             <div className="h-1 bg-primary/20 w-full" />
             <CardHeader>
                <CardTitle className="text-lg font-bold text-foreground">Your Referral Link</CardTitle>
@@ -118,7 +118,7 @@ export default function FreelancerReferralsPage() {
             </CardContent>
          </Card>
 
-         <Card className="border border-border/40 bg-primary/5 dark:bg-primary/10 overflow-hidden relative">
+         <Card className="bg-primary/5 dark:bg-primary/10 overflow-hidden relative">
             <Gift className="absolute -right-8 -top-8 size-40 text-primary opacity-10 rotate-12" />
             <CardHeader>
                <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">Passive Income</CardTitle>
@@ -148,7 +148,7 @@ export default function FreelancerReferralsPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 + 0.2 }}
           >
-            <Card className="border border-border/40 bg-card shadow-sm">
+            <Card>
               <CardContent className="p-5">
                 <div className="flex items-center gap-4">
                   <div className={stat.color + " rounded-lg p-2.5"}>

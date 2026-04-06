@@ -27,7 +27,7 @@ export default function AdminSettingsPage() {
 
          <TabsContent value="general" className="space-y-6 animate-in fade-in-50 duration-500">
             <div className="grid gap-6 md:grid-cols-2">
-               <Card className="border-border/40 bg-card shadow-sm">
+               <Card>
                   <CardHeader>
                      <div className="flex items-center gap-2 text-primary mb-1">
                         <Globe className="h-5 w-5" />
@@ -50,7 +50,7 @@ export default function AdminSettingsPage() {
                   </CardContent>
                </Card>
 
-               <Card className="border-border/40 bg-card shadow-sm">
+               <Card>
                   <CardHeader>
                      <div className="flex items-center gap-2 text-secondary mb-1">
                         <Shield className="h-5 w-5" />
@@ -78,7 +78,7 @@ export default function AdminSettingsPage() {
          </TabsContent>
 
          <TabsContent value="security" className="space-y-6 animate-in fade-in-50 duration-500">
-            <Card className="border-border/40 bg-card shadow-sm max-w-2xl mx-auto">
+            <Card className="max-w-2xl mx-auto">
                <CardHeader>
                   <div className="flex items-center gap-2 text-primary mb-1">
                      <Lock className="h-5 w-5" />

@@ -38,6 +38,7 @@ const getStats = (role: string) => {
       { title: "Success Rate", value: "96.5%", description: "Team average", icon: TrendingUp, trend: "up", color: "bg-secondary/10 text-secondary" },
     ]
   }
+  // Freelancer Stats: Keep only Wallet Card data as requested
   return [
     { title: "Current Balance", value: "420.50", description: "Ready to withdraw", icon: Clock, trend: "neutral", color: "bg-emerald-500/10 text-emerald-600" },
   ]
@@ -78,7 +79,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
         </div>
       </div>
 
-      {/* Stats Grid */}
+      {/* Stats Grid - Single card for freelancers, Grid for others */}
       <div className={cn(
         "grid gap-4",
         role === "freelancer" ? "grid-cols-1 max-w-md" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
@@ -107,7 +108,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               transition={{ delay: i * 0.05, duration: 0.4 }}
               className="h-[220px]"
             >
-              <Card className="border border-border/50 bg-card transition-all duration-300 hover:border-primary/20 h-full flex flex-col justify-center shadow-sm">
+              <Card className="h-full flex flex-col justify-center">
                 <div className="p-6">
                   <div className="flex items-center justify-between">
                     <div className={stat.color + " rounded-lg p-2.5"}>
@@ -144,7 +145,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        <Card className="col-span-1 lg:col-span-4 border border-border/50 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-4">
           <CardHeader>
             <CardTitle className="text-lg font-bold text-foreground lowercase first-letter:uppercase tracking-tight">
               {role === "freelancer" ? "Earnings History" : "Platform Revenue"}
@@ -153,7 +154,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               {role === "freelancer" ? "Your personal task income across all categories." : "Monthly revenue overview across all services."}
             </CardDescription>
           </CardHeader>
-          <CardContent className="h-[300px] flex items-center justify-center border-t border-border/30 bg-muted/5">
+          <CardContent className="h-[300px] flex items-center justify-center border-t border-[#006D44]/10 bg-muted/5">
             <div className="flex flex-col items-center gap-4 text-center">
               <div className="relative size-32">
                 <div className="absolute inset-0 rounded-full border-2 border-muted border-t-primary animate-[spin_3s_linear_infinite]" />
@@ -167,7 +168,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
           </CardContent>
         </Card>
 
-        <Card className="col-span-1 lg:col-span-3 border border-border/50 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-3">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div>
               <CardTitle className="text-lg font-bold text-foreground">Recent Activity</CardTitle>
@@ -209,7 +210,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
       {(role === "admin" || role === "agent") && (
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {/* Quick Actions */}
-          <Card className="border border-border/50 bg-card hover:border-primary/30 transition-all duration-300 cursor-pointer group shadow-sm">
+          <Card className="cursor-pointer group">
             <CardContent className="p-5 flex items-center gap-4 h-[90px]">
               <div className="size-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                 <Users className="size-5" />
@@ -223,7 +224,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               </div>
             </CardContent>
           </Card>
-          <Card className="border border-border/50 bg-card hover:border-secondary/30 transition-all duration-300 cursor-pointer group shadow-sm">
+          <Card className="cursor-pointer group">
             <CardContent className="p-5 flex items-center gap-4 h-[90px]">
               <div className="size-11 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
                 <DollarSign className="size-5" />
@@ -237,7 +238,7 @@ export function DashboardView({ role = "admin" }: { role?: string }) {
               </div>
             </CardContent>
           </Card>
-          <Card className="border border-border/40 bg-card hover:bg-destructive/5 hover:border-destructive/30 transition-all duration-300 cursor-pointer group sm:col-span-2 lg:col-span-1 shadow-sm">
+          <Card className="cursor-pointer group sm:col-span-2 lg:col-span-1">
             <CardContent className="p-5 flex items-center gap-4 h-[90px]">
               <div className="size-11 rounded-xl bg-destructive/10 flex items-center justify-center text-destructive group-hover:scale-110 transition-transform">
                 <AlertCircle className="size-5" />

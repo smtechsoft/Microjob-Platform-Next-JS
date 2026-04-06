@@ -25,7 +25,7 @@ export default function AdminReportsPage() {
       {/* KPI Cards */}
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {reports.map((report) => (
-          <Card key={report.title} className="border-border/40 bg-card shadow-sm">
+          <Card key={report.title}>
             <CardContent className="p-6">
                <div className="flex items-center justify-between">
                   <div className={`p-2 rounded-lg bg-muted/40 ${report.color}`}>
@@ -45,7 +45,7 @@ export default function AdminReportsPage() {
       </div>
 
       <div className="grid gap-6 grid-cols-1 lg:grid-cols-7">
-        <Card className="col-span-1 lg:col-span-4 border-border/40 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-4">
           <CardHeader className="flex flex-row items-center justify-between">
             <div className="space-y-0.5">
                <CardTitle className="text-xl font-bold">Volume Trends</CardTitle>
@@ -68,7 +68,7 @@ export default function AdminReportsPage() {
           </CardContent>
         </Card>
 
-        <Card className="col-span-1 lg:col-span-3 border-border/40 bg-card shadow-sm">
+        <Card className="col-span-1 lg:col-span-3">
            <CardHeader>
               <CardTitle className="text-xl font-bold">Top Earners</CardTitle>
               <CardDescription className="text-xs">Highest generating freelancers this month.</CardDescription>
@@ -98,7 +98,7 @@ export default function AdminReportsPage() {
         </Card>
       </div>
 
-       <Card className="border-border/40 bg-card shadow-sm">
+       <Card>
           <CardHeader>
              <CardTitle className="text-xl font-bold">Recent Invoices</CardTitle>
              <CardDescription className="text-xs">Summary of processed payouts and platform fees.</CardDescription>

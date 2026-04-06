@@ -42,7 +42,7 @@ export default function FreelancerProfilePage() {
       />
 
       <div className="grid gap-6 lg:grid-cols-3">
-         <Card className="lg:col-span-2 border border-border/40 bg-card overflow-hidden">
+         <Card className="lg:col-span-2 overflow-hidden">
             <CardHeader className="border-b border-border/30 bg-muted/5">
                <CardTitle className="text-lg font-bold text-foreground">Professional Info</CardTitle>
                <CardDescription className="text-xs text-muted-foreground uppercase tracking-tight">Main details shown to potential clients.</CardDescription>
@@ -91,7 +91,7 @@ export default function FreelancerProfilePage() {
          </Card>
 
          <div className="space-y-6">
-            <Card className="border border-border/40 bg-card">
+            <Card>
                <CardHeader>
                   <div className="flex items-center justify-between">
                      <CardTitle className="text-sm font-bold text-foreground uppercase tracking-wider">Expert Skills</CardTitle>
@@ -109,7 +109,7 @@ export default function FreelancerProfilePage() {
                </CardContent>
             </Card>
 
-            <Card className="border border-border/40 bg-emerald-500/5 dark:bg-emerald-500/10 dark:border-emerald-500/20">
+            <Card className="bg-emerald-500/5 dark:bg-emerald-500/10 border-emerald-500/10 hover:border-emerald-500/30">
                <CardHeader>
                   <div className="flex items-center gap-2 text-emerald-600">
                      <Award className="size-5" />

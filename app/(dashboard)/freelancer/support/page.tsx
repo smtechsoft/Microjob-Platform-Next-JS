@@ -80,7 +80,7 @@ export default function FreelancerSupportPage() {
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.2 }}
           >
-            <Card className="border border-border/40 bg-card overflow-hidden">
+            <Card className="overflow-hidden">
                <CardHeader className="border-b border-border/30 bg-muted/5">
                   <div className="flex items-center gap-2 text-primary">
                      <Plus className="size-5" />

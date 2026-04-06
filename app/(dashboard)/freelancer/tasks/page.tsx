@@ -97,7 +97,7 @@ export default function FreelancerTasksPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
             >
-              <Card className="border border-border/40 bg-card hover:bg-muted/10 transition-colors shadow-none group">
+              <Card className="group">
                 <CardContent className="p-5">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0 space-y-3">

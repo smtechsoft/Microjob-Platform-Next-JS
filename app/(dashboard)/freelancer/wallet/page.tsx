@@ -112,7 +112,7 @@ export default function FreelancerWalletPage() {
         ))}
       </div>
 
-      <Card className="border border-border/50 bg-card shadow-sm">
+      <Card>
         <CardContent className="p-0">
           <div className="p-6 border-b border-border/50">
             <div className="flex items-center justify-between">
